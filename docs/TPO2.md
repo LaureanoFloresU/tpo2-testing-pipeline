@@ -7,7 +7,8 @@
 **Materia:** Testing de Aplicaciones (14883)  
 **Docente:** ABEL ISRAEL LAIME HUANCA  
 **Fecha:** 26/04/2026  
-**Repositorio:** Pendiente de publicación en GitHub. El proyecto local completo se entrega en el archivo `Flores_1142069_26042026_TPO2_repositorio.zip`.  
+
+<!-- pagebreak -->
 
 ## Indice
 
@@ -24,11 +25,19 @@
 11. Bibliografia
 12. Estado de cumplimiento
 
+<!-- pagebreak -->
+
 ## 1. Introduccion
 
 Este trabajo practico tiene como objetivo aplicar conceptos de testing automatizado y DevOps mediante una solucion simple desarrollada en Python. La propuesta consiste en crear una funcionalidad sencilla, definir escenarios de prueba, automatizarlos con pytest e integrarlos a un pipeline de integracion continua usando GitHub Actions.
 
 La funcionalidad elegida fue un sistema de descuentos. La aplicacion calcula el precio final de una compra de acuerdo con el tipo de cliente y el monto ingresado. Esta eleccion permite cubrir casos exitosos, errores de validacion y casos borde de forma clara.
+
+### Repositorio y archivos entregados
+
+El repositorio publico queda pendiente de publicacion en GitHub porque el repositorio remoto todavia no existe y GitHub respondio `Repository not found` al intentar realizar el `push`.
+
+Para dejar la entrega completa en esta instancia, se incluye el proyecto local empaquetado en el archivo `Flores_1142069_26042026_TPO2_repositorio.zip`, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.
 
 ## 2. Objetivo del trabajo
 

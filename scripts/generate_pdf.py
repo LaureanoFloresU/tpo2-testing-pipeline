@@ -32,6 +32,9 @@ def markdown_to_blocks(markdown: str) -> list[tuple[str, str]]:
 
     for raw in markdown.splitlines():
         line = raw.rstrip()
+        if line.strip() == "<!-- pagebreak -->":
+            blocks.append(("pagebreak", ""))
+            continue
         if line.strip().startswith("```"):
             if in_code:
                 blocks.append(("code", "\n".join(code_lines)))
@@ -71,6 +74,9 @@ def markdown_to_blocks(markdown: str) -> list[tuple[str, str]]:
 def blocks_to_pdf_lines(blocks: list[tuple[str, str]]) -> list[tuple[str, int, str]]:
     lines: list[tuple[str, int, str]] = []
     for kind, text in blocks:
+        if kind == "pagebreak":
+            lines.append(("__PAGEBREAK__", 0, "PAGEBREAK"))
+            continue
         if kind == "blank":
             lines.append(("", 10, "F1"))
             continue
@@ -100,7 +106,13 @@ def paginate(lines: list[tuple[str, int, str]]) -> list[list[tuple[str, int, str
     current: list[tuple[str, int, str]] = []
     y = PAGE_HEIGHT - MARGIN_TOP
     for line in lines:
-        _, size, _ = line
+        text, size, font = line
+        if font == "PAGEBREAK":
+            if current:
+                pages.append(current)
+                current = []
+            y = PAGE_HEIGHT - MARGIN_TOP
+            continue
         step = max(size + 5, 13)
         if y - step < MARGIN_BOTTOM:
             pages.append(current)
@@ -192,7 +204,9 @@ def write_html(markdown: str) -> None:
     ]
     for kind, text in blocks:
         safe = escape(text)
-        if kind == "blank":
+        if kind == "pagebreak":
+            html_parts.append("<div style='page-break-after:always'></div>")
+        elif kind == "blank":
             html_parts.append("<br>")
         elif kind in {"h1", "h2", "h3"}:
             html_parts.append(f"<{kind}>{safe}</{kind}>")
@@ -213,7 +227,9 @@ def write_docx(markdown: str) -> None:
 
     body = []
     for kind, text in blocks:
-        if kind == "blank":
+        if kind == "pagebreak":
+            body.append('<w:p><w:r><w:br w:type="page"/></w:r></w:p>')
+        elif kind == "blank":
             body.append(paragraph(""))
         elif kind == "h1":
             body.append(paragraph(text, "Title"))
