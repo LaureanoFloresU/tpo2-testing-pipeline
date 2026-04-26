@@ -1,3 +1,5 @@
+# Portada
+
 # TPO2 - Automatizacion de pruebas y pipeline CI/CD
 
 **Alumno:** Laureano Tomás Flores  
@@ -5,7 +7,7 @@
 **Materia:** Testing de Aplicaciones (14883)  
 **Docente:** ABEL ISRAEL LAIME HUANCA  
 **Fecha:** 26/04/2026  
-**Repositorio público previsto:** https://github.com/LaureanoFloresU/tpo2-testing-pipeline  
+**Repositorio:** Pendiente de publicación en GitHub. El proyecto local completo se entrega en el archivo `Flores_1142069_26042026_TPO2_repositorio.zip`.  
 
 ## Indice
 
@@ -20,6 +22,7 @@
 9. Conclusiones personales
 10. Propuestas de futuras mejoras
 11. Bibliografia
+12. Estado de cumplimiento
 
 ## 1. Introduccion
 
@@ -159,9 +162,18 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 4 passed
 ```
 
-### Evidencia esperada del pipeline
+### Evidencia del pipeline
 
-Una vez publicado el repositorio en GitHub, el workflow `Python tests` debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:
+El pipeline fue configurado correctamente en `.github/workflows/ci.yml`, pero no se pudo registrar una captura real de GitHub Actions porque el repositorio remoto publico aun no existe. Al intentar publicar el repositorio en `https://github.com/LaureanoFloresU/tpo2-testing-pipeline.git`, GitHub respondio `Repository not found`.
+
+Por ese motivo, la evidencia disponible en esta entrega es:
+
+- Archivo de workflow incluido en `.github/workflows/ci.yml`.
+- Ejecucion local de pytest finalizada correctamente.
+- Reporte HTML generado en `reports/pytest-report.html`.
+- Proyecto empaquetado en `Flores_1142069_26042026_TPO2_repositorio.zip`.
+
+Cuando el repositorio sea creado en GitHub y se realice el primer `push`, el workflow `Python tests` debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:
 
 - Estado general del workflow: OK.
 - Job `test`: OK.
@@ -229,3 +241,26 @@ Como mejoras futuras se podrian implementar:
 - GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions
 - pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/
 
+## 12. Estado de cumplimiento
+
+| Requisito | Estado | Observacion |
+|---|---|---|
+| Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en `src/descuentos/calculator.py`. |
+| Estructura de proyecto real | Cumplido | Separacion entre `src`, `tests`, `docs`, `reports` y `.github/workflows`. |
+| Escenario de prueba | Cumplido | Escenario comercial de calculo de precio final con descuentos. |
+| Al menos 3 casos de prueba | Cumplido | Se definieron 4 casos. |
+| Python + pytest | Cumplido | Tests en `tests/test_calculator.py`. |
+| Caso exitoso | Cumplido | Cliente premium con descuento correcto. |
+| Caso de error | Cumplido | Monto negativo y cliente desconocido generan `ValueError`. |
+| Caso borde | Cumplido | Compra exacta de $100000 aplica descuento adicional. |
+| GitHub Actions configurado | Cumplido | Workflow `Python tests` en `.github/workflows/ci.yml`. |
+| Ejecutarse al hacer push | Cumplido en configuracion | El workflow tiene trigger `push`. |
+| Instalar dependencias | Cumplido | Paso `Install dependencies`. |
+| Ejecutar tests | Cumplido | Paso `Run automated tests`. |
+| Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso. |
+| Artefacto de reporte | Cumplido en configuracion y localmente | `pytest-html-report` en GitHub Actions y `reports/pytest-report.html` local. |
+| Capturas del pipeline | Pendiente | Requiere que exista el repositorio remoto y se ejecute GitHub Actions. |
+| Repositorio publico accesible | Pendiente | No existe actualmente en GitHub; el intento de `push` devolvio `Repository not found`. |
+| PDF con portada, indice y paginas | Cumplido | Archivo `Flores_1142069_26042026_TPO2.pdf`. |
+| Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10. |
+| Bibliografia | Cumplido | Incluida en la seccion 11. |

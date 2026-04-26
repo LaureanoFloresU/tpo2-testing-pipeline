@@ -1,6 +1,8 @@
 <!doctype html><html><head><meta charset='utf-8'>
 <title>TPO2 - Automatizacion de pruebas y pipeline CI/CD</title>
 <style>body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;line-height:1.5;color:#222}h1,h2,h3{color:#111}code,pre{background:#f3f3f3;padding:2px 4px}pre{padding:12px;white-space:pre-wrap}p{margin:8px 0}</style></head><body>
+<h1>Portada</h1>
+<br>
 <h1>TPO2 - Automatizacion de pruebas y pipeline CI/CD</h1>
 <br>
 <p>Alumno: Laureano Tomás Flores</p>
@@ -8,7 +10,7 @@
 <p>Materia: Testing de Aplicaciones (14883)</p>
 <p>Docente: ABEL ISRAEL LAIME HUANCA</p>
 <p>Fecha: 26/04/2026</p>
-<p>Repositorio público previsto: https://github.com/LaureanoFloresU/tpo2-testing-pipeline</p>
+<p>Repositorio: Pendiente de publicación en GitHub. El proyecto local completo se entrega en el archivo Flores_1142069_26042026_TPO2_repositorio.zip.</p>
 <br>
 <h2>Indice</h2>
 <br>
@@ -23,6 +25,7 @@
 <p>9. Conclusiones personales</p>
 <p>10. Propuestas de futuras mejoras</p>
 <p>11. Bibliografia</p>
+<p>12. Estado de cumplimiento</p>
 <br>
 <h2>1. Introduccion</h2>
 <br>
@@ -151,9 +154,18 @@ tests/test_calculator.py::test_compra_en_limite_recibe_descuento_adicional PASSE
 tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 4 passed</pre>
 <br>
-<h3>Evidencia esperada del pipeline</h3>
+<h3>Evidencia del pipeline</h3>
 <br>
-<p>Una vez publicado el repositorio en GitHub, el workflow Python tests debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:</p>
+<p>El pipeline fue configurado correctamente en .github/workflows/ci.yml, pero no se pudo registrar una captura real de GitHub Actions porque el repositorio remoto publico aun no existe. Al intentar publicar el repositorio en https://github.com/LaureanoFloresU/tpo2-testing-pipeline.git, GitHub respondio Repository not found.</p>
+<br>
+<p>Por ese motivo, la evidencia disponible en esta entrega es:</p>
+<br>
+<p>- Archivo de workflow incluido en .github/workflows/ci.yml.</p>
+<p>- Ejecucion local de pytest finalizada correctamente.</p>
+<p>- Reporte HTML generado en reports/pytest-report.html.</p>
+<p>- Proyecto empaquetado en Flores_1142069_26042026_TPO2_repositorio.zip.</p>
+<br>
+<p>Cuando el repositorio sea creado en GitHub y se realice el primer push, el workflow Python tests debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:</p>
 <br>
 <p>- Estado general del workflow: OK.</p>
 <p>- Job test: OK.</p>
@@ -220,4 +232,26 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <p>- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions</p>
 <p>- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/</p>
 <br>
+<h2>12. Estado de cumplimiento</h2>
+<br>
+<p>Requisito | Estado | Observacion</p>
+<p>Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en src/descuentos/calculator.py.</p>
+<p>Estructura de proyecto real | Cumplido | Separacion entre src, tests, docs, reports y .github/workflows.</p>
+<p>Escenario de prueba | Cumplido | Escenario comercial de calculo de precio final con descuentos.</p>
+<p>Al menos 3 casos de prueba | Cumplido | Se definieron 4 casos.</p>
+<p>Python + pytest | Cumplido | Tests en tests/test_calculator.py.</p>
+<p>Caso exitoso | Cumplido | Cliente premium con descuento correcto.</p>
+<p>Caso de error | Cumplido | Monto negativo y cliente desconocido generan ValueError.</p>
+<p>Caso borde | Cumplido | Compra exacta de $100000 aplica descuento adicional.</p>
+<p>GitHub Actions configurado | Cumplido | Workflow Python tests en .github/workflows/ci.yml.</p>
+<p>Ejecutarse al hacer push | Cumplido en configuracion | El workflow tiene trigger push.</p>
+<p>Instalar dependencias | Cumplido | Paso Install dependencies.</p>
+<p>Ejecutar tests | Cumplido | Paso Run automated tests.</p>
+<p>Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso.</p>
+<p>Artefacto de reporte | Cumplido en configuracion y localmente | pytest-html-report en GitHub Actions y reports/pytest-report.html local.</p>
+<p>Capturas del pipeline | Pendiente | Requiere que exista el repositorio remoto y se ejecute GitHub Actions.</p>
+<p>Repositorio publico accesible | Pendiente | No existe actualmente en GitHub; el intento de push devolvio Repository not found.</p>
+<p>PDF con portada, indice y paginas | Cumplido | Archivo Flores_1142069_26042026_TPO2.pdf.</p>
+<p>Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10.</p>
+<p>Bibliografia | Cumplido | Incluida en la seccion 11.</p>
 </body></html>
