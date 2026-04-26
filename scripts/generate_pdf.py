@@ -10,9 +10,9 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs" / "TPO2.md"
-PDF_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.pdf"
-HTML_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.html"
-DOCX_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.docx"
+PDF_OUTPUT = ROOT / "Flores_1142069_28042026_TPO2.pdf"
+HTML_OUTPUT = ROOT / "Flores_1142069_28042026_TPO2.html"
+DOCX_OUTPUT = ROOT / "Flores_1142069_28042026_TPO2.docx"
 
 PAGE_WIDTH = 595
 PAGE_HEIGHT = 842
@@ -52,53 +52,78 @@ def bookmark_for(text: str) -> str:
     return (slug or "Section")[:32]
 
 
+def parse_table_row(line: str) -> list[str]:
+    return [strip_md(part.strip()) for part in line.strip().strip("|").split("|")]
+
+
+def is_table_separator(line: str) -> bool:
+    return bool(re.match(r"^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$", line))
+
+
+def append_block(blocks: list[Block], block: Block) -> None:
+    if block.kind == "blank" and (not blocks or blocks[-1].kind in {"blank", "pagebreak", "h1", "h2", "h3"}):
+        return
+    blocks.append(block)
+
+
 def markdown_to_blocks(markdown: str) -> list[Block]:
     blocks: list[Block] = []
     in_code = False
     in_index = False
     code_lines: list[str] = []
+    lines = markdown.splitlines()
+    index = 0
 
-    for raw in markdown.splitlines():
-        line = raw.rstrip()
+    while index < len(lines):
+        line = lines[index].rstrip()
         if line.strip() == "<!-- pagebreak -->":
-            blocks.append(Block("pagebreak"))
+            append_block(blocks, Block("pagebreak"))
             in_index = False
+            index += 1
             continue
         if line.strip().startswith("```"):
             if in_code:
-                blocks.append(Block("code", "\n".join(code_lines)))
+                append_block(blocks, Block("code", "\n".join(code_lines)))
                 code_lines = []
                 in_code = False
             else:
                 in_code = True
+            index += 1
             continue
         if in_code:
             code_lines.append(line)
+            index += 1
+            continue
+        if line.startswith("|"):
+            table_rows: list[list[str]] = []
+            while index < len(lines) and lines[index].rstrip().startswith("|"):
+                current = lines[index].rstrip()
+                if not is_table_separator(current):
+                    table_rows.append(parse_table_row(current))
+                index += 1
+            if table_rows:
+                append_block(blocks, Block("table", "\n".join("\t".join(row) for row in table_rows)))
             continue
         if not line.strip():
-            blocks.append(Block("blank"))
+            append_block(blocks, Block("blank"))
         elif line.startswith("# "):
-            blocks.append(Block("h1", strip_md(line[2:])))
+            append_block(blocks, Block("h1", strip_md(line[2:])))
         elif line.startswith("## "):
             text = strip_md(line[3:])
             if text == "Indice":
                 in_index = True
-            blocks.append(Block("h2", text, bookmark_for(text)))
+            append_block(blocks, Block("h2", text, bookmark_for(text)))
         elif line.startswith("### "):
-            blocks.append(Block("h3", strip_md(line[4:])))
+            append_block(blocks, Block("h3", strip_md(line[4:])))
         elif line.startswith("- "):
-            blocks.append(Block("p", "- " + strip_md(line[2:])))
+            append_block(blocks, Block("p", "- " + strip_md(line[2:])))
         elif in_index and re.match(r"^\d+\. ", line):
-            blocks.append(Block("toc", strip_md(line), bookmark_for(line)))
+            append_block(blocks, Block("toc", strip_md(line), bookmark_for(line)))
         elif re.match(r"^\d+\. ", line):
-            blocks.append(Block("p", strip_md(line)))
-        elif line.startswith("|"):
-            table_text = " | ".join(part.strip() for part in line.strip("|").split("|"))
-            if not set(table_text.replace("|", "").replace("-", "").replace(" ", "")):
-                continue
-            blocks.append(Block("p", strip_md(table_text)))
+            append_block(blocks, Block("p", strip_md(line)))
         else:
-            blocks.append(Block("p", strip_md(line)))
+            append_block(blocks, Block("p", strip_md(line)))
+        index += 1
     return blocks
 
 
@@ -121,6 +146,11 @@ def blocks_to_pdf_lines(blocks: list[Block]) -> list[PdfLine]:
             width, size, font = 80, 11, "F1"
         elif block.kind == "code":
             width, size, font = 80, 9, "F1"
+        elif block.kind == "table":
+            for row_index, row in enumerate(block.text.splitlines()):
+                lines.append(PdfLine(row, 8, "F2" if row_index == 0 else "F1", kind="table_header" if row_index == 0 else "table_row"))
+            lines.append(PdfLine("", 8, "F1"))
+            continue
         else:
             width, size, font = 88, 10, "F1"
 
@@ -154,7 +184,7 @@ def paginate(lines: list[PdfLine]) -> list[list[PdfLine]]:
                 current = []
             y = PAGE_HEIGHT - MARGIN_TOP
             continue
-        step = max(line.size + 5, 13)
+        step = 30 if line.kind in {"table_header", "table_row"} else max(line.size + 5, 13)
         if y - step < MARGIN_BOTTOM:
             pages.append(current)
             current = []
@@ -203,8 +233,25 @@ def normal_stream(page: list[PdfLine], page_number: int, total_pages: int) -> tu
     links: list[dict[str, object]] = []
     y = PAGE_HEIGHT - MARGIN_TOP
     for line in page:
-        step = max(line.size + 5, 13)
+        step = 30 if line.kind in {"table_header", "table_row"} else max(line.size + 5, 13)
         if line.text:
+            if line.kind in {"table_header", "table_row"}:
+                cells = line.text.split("\t")
+                col_width = (PAGE_WIDTH - MARGIN_X * 2) / max(len(cells), 1)
+                commands.append("0.91 0.95 0.97 rg" if line.kind == "table_header" else "1 1 1 rg")
+                commands.append(f"{MARGIN_X} {y - 9} {PAGE_WIDTH - MARGIN_X * 2} 28 re f")
+                commands.append("0.65 0.70 0.75 RG")
+                for cell_index, cell in enumerate(cells):
+                    x = MARGIN_X + col_width * cell_index
+                    commands.append(f"{x} {y - 9} {col_width} 28 re S")
+                    commands.append("0.08 0.08 0.08 rg")
+                    commands.append("BT")
+                    commands.append(f"/{line.font} {line.size} Tf")
+                    commands.append(f"1 0 0 1 {x + 4} {y + 7} Tm")
+                    commands.append(f"({pdf_escape(textwrap.shorten(cell, width=max(int(col_width / 4), 12), placeholder='...'))}) Tj")
+                    commands.append("ET")
+                y -= step
+                continue
             if line.target:
                 commands.append("0.00 0.28 0.65 rg")
             else:
@@ -324,6 +371,7 @@ def write_html(markdown: str) -> None:
         ".cover h1{font-size:54px;margin:0}.cover h2{font-size:30px;margin:12px 0 60px}.meta{border-top:2px solid #5eead4;padding-top:28px}"
         "h1,h2,h3{color:#111827}.cover h1,.cover h2{color:white}a{color:#075985;text-decoration:none;font-weight:600}"
         "pre{background:#f3f4f6;padding:12px;white-space:pre-wrap;border-left:4px solid #0f766e}"
+        "table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}th{background:#eaf3f5}"
         "p{margin:8px 0}.break{page-break-after:always}@media print{.page{box-shadow:none;margin:0;page-break-after:always}}</style></head><body>",
         "<section class='page cover'><h1>TPO2</h1><h2>Automatizacion de pruebas y pipeline CI/CD</h2>"
         "<div class='meta'><p><strong>Alumno:</strong> Laureano Tomás Flores</p><p><strong>Legajo:</strong> 1142069</p>"
@@ -353,6 +401,13 @@ def write_html(markdown: str) -> None:
             html_parts.append(f"<p><a href='#{block.bookmark}'>{safe}</a></p>")
         elif block.kind == "code":
             html_parts.append(f"<pre>{safe}</pre>")
+        elif block.kind == "table":
+            rows = [row.split("\t") for row in block.text.splitlines()]
+            html_parts.append("<table>")
+            for row_index, row in enumerate(rows):
+                tag = "th" if row_index == 0 else "td"
+                html_parts.append("<tr>" + "".join(f"<{tag}>{escape(cell)}</{tag}>" for cell in row) + "</tr>")
+            html_parts.append("</table>")
         else:
             html_parts.append(f"<p>{safe}</p>")
     if page_open:
@@ -404,6 +459,28 @@ def write_docx(markdown: str) -> None:
         elif block.kind == "code":
             for line in block.text.splitlines():
                 body.append(paragraph(line))
+        elif block.kind == "table":
+            rows = [row.split("\t") for row in block.text.splitlines()]
+            table_rows = []
+            for row in rows:
+                cells = "".join(
+                    "<w:tc><w:tcPr><w:tcW w:w=\"2400\" w:type=\"dxa\"/></w:tcPr>"
+                    f"<w:p><w:r><w:t xml:space=\"preserve\">{escape(cell)}</w:t></w:r></w:p></w:tc>"
+                    for cell in row
+                )
+                table_rows.append(f"<w:tr>{cells}</w:tr>")
+            body.append(
+                "<w:tbl><w:tblPr><w:tblBorders>"
+                "<w:top w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "<w:left w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "<w:bottom w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "<w:right w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "<w:insideH w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "<w:insideV w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"B8C2CC\"/>"
+                "</w:tblBorders></w:tblPr>"
+                + "".join(table_rows)
+                + "</w:tbl>"
+            )
         else:
             body.append(paragraph(block.text))
 

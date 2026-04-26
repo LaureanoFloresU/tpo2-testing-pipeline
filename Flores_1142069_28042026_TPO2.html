@@ -1,10 +1,8 @@
 <!doctype html><html><head><meta charset='utf-8'>
 <title>TPO2 - Automatizacion de pruebas y pipeline CI/CD</title>
-<style>body{font-family:Arial,sans-serif;margin:0;line-height:1.55;color:#222;background:#f5f7fb}.page{max-width:900px;min-height:980px;margin:24px auto;background:white;padding:64px;box-shadow:0 10px 34px #ccd}.cover{background:linear-gradient(135deg,#111827,#0f766e);color:white;display:flex;flex-direction:column;justify-content:center}.cover h1{font-size:54px;margin:0}.cover h2{font-size:30px;margin:12px 0 60px}.meta{border-top:2px solid #5eead4;padding-top:28px}h1,h2,h3{color:#111827}.cover h1,.cover h2{color:white}a{color:#075985;text-decoration:none;font-weight:600}pre{background:#f3f4f6;padding:12px;white-space:pre-wrap;border-left:4px solid #0f766e}p{margin:8px 0}.break{page-break-after:always}@media print{.page{box-shadow:none;margin:0;page-break-after:always}}</style></head><body>
+<style>body{font-family:Arial,sans-serif;margin:0;line-height:1.55;color:#222;background:#f5f7fb}.page{max-width:900px;min-height:980px;margin:24px auto;background:white;padding:64px;box-shadow:0 10px 34px #ccd}.cover{background:linear-gradient(135deg,#111827,#0f766e);color:white;display:flex;flex-direction:column;justify-content:center}.cover h1{font-size:54px;margin:0}.cover h2{font-size:30px;margin:12px 0 60px}.meta{border-top:2px solid #5eead4;padding-top:28px}h1,h2,h3{color:#111827}.cover h1,.cover h2{color:white}a{color:#075985;text-decoration:none;font-weight:600}pre{background:#f3f4f6;padding:12px;white-space:pre-wrap;border-left:4px solid #0f766e}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}th{background:#eaf3f5}p{margin:8px 0}.break{page-break-after:always}@media print{.page{box-shadow:none;margin:0;page-break-after:always}}</style></head><body>
 <section class='page cover'><h1>TPO2</h1><h2>Automatizacion de pruebas y pipeline CI/CD</h2><div class='meta'><p><strong>Alumno:</strong> Laureano Tomás Flores</p><p><strong>Legajo:</strong> 1142069</p><p><strong>Materia:</strong> Testing de Aplicaciones (14883)</p><p><strong>Docente:</strong> ABEL ISRAEL LAIME HUANCA</p><p><strong>Fecha:</strong> 28/04/2026</p></div></section>
 <section class='page'>
-<br>
-<br>
 <p>Alumno: Laureano Tomás Flores</p>
 <p>Legajo: 1142069</p>
 <p>Materia: Testing de Aplicaciones (14883)</p>
@@ -13,9 +11,7 @@
 <br>
 </section>
 <section class='page'>
-<br>
 <h2 id='Indice'>Indice</h2>
-<br>
 <p><a href='#Sec1'>1. Introduccion</a></p>
 <p><a href='#Sec2'>2. Objetivo del trabajo</a></p>
 <p><a href='#Sec3'>3. Desarrollo de la aplicacion</a></p>
@@ -27,31 +23,25 @@
 <p><a href='#Sec9'>9. Conclusiones personales</a></p>
 <p><a href='#Sec10'>10. Propuestas de futuras mejoras</a></p>
 <p><a href='#Sec11'>11. Bibliografia</a></p>
-<p><a href='#Sec12'>12. Estado de cumplimiento</a></p>
 <br>
 </section>
 <section class='page'>
-<br>
 <h2 id='Sec1'>1. Introduccion</h2>
-<br>
 <p>Este trabajo practico tiene como objetivo aplicar conceptos de testing automatizado y DevOps mediante una solucion simple desarrollada en Python. La propuesta consiste en crear una funcionalidad sencilla, definir escenarios de prueba, automatizarlos con pytest e integrarlos a un pipeline de integracion continua usando GitHub Actions.</p>
 <br>
 <p>La funcionalidad elegida fue un sistema de descuentos. La aplicacion calcula el precio final de una compra de acuerdo con el tipo de cliente y el monto ingresado. Esta eleccion permite cubrir casos exitosos, errores de validacion y casos borde de forma clara.</p>
 <br>
 <h3>Repositorio y archivos entregados</h3>
-<br>
 <p>El repositorio publico del trabajo es:</p>
 <br>
 <p>https://github.com/LaureanoFloresU/tpo2-testing-pipeline</p>
 <br>
-<p>Ademas, se incluye el proyecto local empaquetado en el archivo Flores_1142069_26042026_TPO2_repositorio.zip, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.</p>
+<p>Ademas, se incluye el proyecto local empaquetado en el archivo Flores_1142069_28042026_TPO2_repositorio.zip, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.</p>
 <br>
 <h2 id='Sec2'>2. Objetivo del trabajo</h2>
-<br>
 <p>El objetivo es implementar un flujo basico de automatizacion de pruebas integrado a un pipeline CI/CD. Para cumplirlo se desarrollo una aplicacion en Python, se escribieron pruebas automatizadas con pytest y se configuro un workflow de GitHub Actions que instala dependencias, ejecuta los tests y genera un reporte HTML como artefacto.</p>
 <br>
 <h2 id='Sec3'>3. Desarrollo de la aplicacion</h2>
-<br>
 <p>La aplicacion se encuentra dentro de la carpeta src/descuentos. La funcion principal es calcular_precio_final(monto, tipo_cliente).</p>
 <br>
 <p>Reglas implementadas:</p>
@@ -80,23 +70,21 @@
 `-- README.md</pre>
 <br>
 <h2 id='Sec4'>4. Parte 1 - Diseno del escenario de prueba</h2>
-<br>
 <h3>Escenario de prueba</h3>
-<br>
 <p>El escenario elegido representa una compra en la que el sistema debe calcular el precio final luego de aplicar descuentos. El contexto simula una aplicacion comercial simple donde diferentes tipos de clientes obtienen distintos beneficios.</p>
 <br>
 <h3>Casos de prueba definidos</h3>
-<br>
-<p>Caso | Tipo | Datos de entrada | Resultado esperado</p>
-<p>Cliente premium | Caso exitoso | Monto: 10000, cliente: premium | Precio final: 9000</p>
-<p>Monto negativo | Caso de error | Monto: -1, cliente: regular | Se lanza ValueError</p>
-<p>Compra en limite | Caso borde | Monto: 100000, cliente: vip | Precio final: 75000</p>
-<p>Cliente inexistente | Caso de error adicional | Monto: 5000, cliente: estudiante | Se lanza ValueError</p>
+<table>
+<tr><th>Caso</th><th>Tipo</th><th>Datos de entrada</th><th>Resultado esperado</th></tr>
+<tr><td>Cliente premium</td><td>Caso exitoso</td><td>Monto: 10000, cliente: premium</td><td>Precio final: 9000</td></tr>
+<tr><td>Monto negativo</td><td>Caso de error</td><td>Monto: -1, cliente: regular</td><td>Se lanza ValueError</td></tr>
+<tr><td>Compra en limite</td><td>Caso borde</td><td>Monto: 100000, cliente: vip</td><td>Precio final: 75000</td></tr>
+<tr><td>Cliente inexistente</td><td>Caso de error adicional</td><td>Monto: 5000, cliente: estudiante</td><td>Se lanza ValueError</td></tr>
+</table>
 <br>
 <p>El caso borde es importante porque verifica que el descuento adicional se aplique exactamente en el limite definido por la regla de negocio: compras desde $100000.</p>
 <br>
 <h2 id='Sec5'>5. Parte 2 - Automatizacion de pruebas</h2>
-<br>
 <p>Los casos fueron automatizados con Python y pytest. El archivo de pruebas es tests/test_calculator.py.</p>
 <br>
 <p>Tests automatizados:</p>
@@ -117,7 +105,6 @@
 <p>Este resultado confirma que la logica del sistema cumple con los escenarios definidos.</p>
 <br>
 <h2 id='Sec6'>6. Parte 3 - Pipeline CI/CD</h2>
-<br>
 <p>El pipeline fue configurado con GitHub Actions en el archivo .github/workflows/ci.yml.</p>
 <br>
 <p>El workflow se ejecuta automaticamente ante:</p>
@@ -156,9 +143,7 @@ jobs:
 <p>El artefacto generado permite descargar un reporte visual de los tests ejecutados.</p>
 <br>
 <h2 id='Sec7'>7. Parte 4 - Evidencia y analisis</h2>
-<br>
 <h3>Evidencia de ejecucion local</h3>
-<br>
 <p>La ejecucion local de pytest finalizo correctamente:</p>
 <br>
 <pre>tests/test_calculator.py::test_cliente_premium_recibe_descuento_exitoso PASSED
@@ -168,16 +153,15 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 4 passed</pre>
 <br>
 <h3>Evidencia del pipeline</h3>
-<br>
 <p>El pipeline fue configurado correctamente en .github/workflows/ci.yml. La evidencia disponible en esta entrega es:</p>
 <br>
 <p>- Archivo de workflow incluido en .github/workflows/ci.yml.</p>
 <p>- Ejecucion local de pytest finalizada correctamente.</p>
 <p>- Reporte HTML generado en reports/pytest-report.html.</p>
-<p>- Proyecto empaquetado en Flores_1142069_26042026_TPO2_repositorio.zip.</p>
+<p>- Proyecto empaquetado en Flores_1142069_28042026_TPO2_repositorio.zip.</p>
 <p>- Repositorio publico: https://github.com/LaureanoFloresU/tpo2-testing-pipeline</p>
-<p>- Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464</p>
-<p>- Job test finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464/job/73104237761</p>
+<p>- Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967342051</p>
+<p>- Job test finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967342051/job/73104323528</p>
 <p>- Artefacto generado: pytest-html-report.</p>
 <br>
 <p>Al realizar el push, el workflow Python tests debe verse en la pestaña Actions del repositorio. La ejecucion correcta debe mostrar:</p>
@@ -187,50 +171,42 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <p>- Paso Install dependencies: OK.</p>
 <p>- Paso Run automated tests: OK.</p>
 <p>- Artefacto disponible: pytest-html-report.</p>
-<p>- Commit ejecutado: 7f2af7318fc92a41bb6031231e8c22b561819775.</p>
+<p>- Commit ejecutado: 74aa08c6eeee805af0ae2067a6239f1e529bcd0e.</p>
 <br>
 <h3>Resultado de los tests</h3>
-<br>
-<p>Test | Resultado</p>
-<p>Cliente premium recibe descuento exitoso | OK</p>
-<p>Monto negativo genera error | OK</p>
-<p>Compra en limite recibe descuento adicional | OK</p>
-<p>Tipo de cliente desconocido genera error | OK</p>
+<table>
+<tr><th>Test</th><th>Resultado</th></tr>
+<tr><td>Cliente premium recibe descuento exitoso</td><td>OK</td></tr>
+<tr><td>Monto negativo genera error</td><td>OK</td></tr>
+<tr><td>Compra en limite recibe descuento adicional</td><td>OK</td></tr>
+<tr><td>Tipo de cliente desconocido genera error</td><td>OK</td></tr>
+</table>
 <br>
 <h3>Explicacion de resultados</h3>
-<br>
 <p>Los tests pasaron porque la funcion implementada respeta las reglas de negocio. El caso exitoso confirma el descuento premium, el caso de error valida que un monto negativo no sea aceptado, el caso borde comprueba el limite exacto de $100000 y el caso de cliente inexistente verifica que el sistema rechace datos invalidos.</p>
 <br>
 <h3>Ventaja de automatizar pruebas dentro del pipeline</h3>
-<br>
 <p>Automatizar pruebas dentro del pipeline permite detectar errores automaticamente cada vez que se sube codigo al repositorio. Esto evita depender solamente de revisiones manuales y ayuda a impedir que cambios defectuosos lleguen a la rama principal.</p>
 <br>
 <h3>Impacto en la calidad del software</h3>
-<br>
 <p>El impacto es positivo porque aumenta la confianza sobre cada cambio. Tambien mejora la trazabilidad, ya que GitHub Actions conserva logs de cada ejecucion. Esto permite saber que version del codigo fue probada, que tests se ejecutaron y cual fue el resultado.</p>
 <br>
 <h2 id='Sec8'>8. Parte 5 - Reflexion</h2>
-<br>
 <h3>Beneficios de automatizar pruebas frente a hacerlas manualmente</h3>
-<br>
 <p>Automatizar pruebas permite ahorrar tiempo, repetir validaciones sin esfuerzo adicional y reducir errores humanos. Las pruebas manuales pueden ser utiles para explorar el sistema, pero las pruebas automatizadas son mejores para comprobar reglas conocidas de manera constante.</p>
 <br>
 <h3>Dificultades encontradas al implementar el pipeline</h3>
-<br>
 <p>Una dificultad fue asegurar que todas las dependencias estuvieran declaradas correctamente en requirements.txt. Otra dificultad fue ordenar la estructura del proyecto para que pytest pudiera importar el codigo desde src. Tambien fue necesario generar un artefacto HTML para cumplir con la evidencia solicitada.</p>
 <br>
 <h3>Donde aplicaria este enfoque en un entorno real</h3>
-<br>
 <p>Aplicaria este enfoque en proyectos web, APIs, sistemas administrativos, sistemas de ventas, facturacion o cualquier aplicacion que tenga reglas de negocio importantes. En un entorno real, automatizar pruebas dentro del pipeline ayuda a trabajar en equipo y reduce el riesgo de romper funcionalidades existentes.</p>
 <br>
 <h2 id='Sec9'>9. Conclusiones personales</h2>
-<br>
 <p>El trabajo muestra como se conectan el desarrollo de software, el testing y las practicas DevOps. La automatizacion no reemplaza completamente el criterio humano, pero permite construir una base de validacion objetiva y repetible.</p>
 <br>
 <p>Integrar pytest con GitHub Actions permite que cada cambio sea verificado automaticamente. Esto mejora la calidad del proceso de desarrollo y facilita detectar errores antes de que lleguen a produccion.</p>
 <br>
 <h2 id='Sec10'>10. Propuestas de futuras mejoras</h2>
-<br>
 <p>Como mejoras futuras se podrian implementar:</p>
 <br>
 <p>- Agregar mas reglas de descuento.</p>
@@ -242,33 +218,9 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <p>- Incorporar pruebas de integracion si la aplicacion crece.</p>
 <br>
 <h2 id='Sec11'>11. Bibliografia</h2>
-<br>
 <p>- Python Software Foundation. Documentacion oficial de Python: https://docs.python.org/3/</p>
 <p>- pytest. Documentacion oficial: https://docs.pytest.org/</p>
 <p>- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions</p>
 <p>- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/</p>
-<br>
-<h2 id='Sec12'>12. Estado de cumplimiento</h2>
-<br>
-<p>Requisito | Estado | Observacion</p>
-<p>Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en src/descuentos/calculator.py.</p>
-<p>Estructura de proyecto real | Cumplido | Separacion entre src, tests, docs, reports y .github/workflows.</p>
-<p>Escenario de prueba | Cumplido | Escenario comercial de calculo de precio final con descuentos.</p>
-<p>Al menos 3 casos de prueba | Cumplido | Se definieron 4 casos.</p>
-<p>Python + pytest | Cumplido | Tests en tests/test_calculator.py.</p>
-<p>Caso exitoso | Cumplido | Cliente premium con descuento correcto.</p>
-<p>Caso de error | Cumplido | Monto negativo y cliente desconocido generan ValueError.</p>
-<p>Caso borde | Cumplido | Compra exacta de $100000 aplica descuento adicional.</p>
-<p>GitHub Actions configurado | Cumplido | Workflow Python tests en .github/workflows/ci.yml.</p>
-<p>Ejecutarse al hacer push | Cumplido en configuracion | El workflow tiene trigger push.</p>
-<p>Instalar dependencias | Cumplido | Paso Install dependencies.</p>
-<p>Ejecutar tests | Cumplido | Paso Run automated tests.</p>
-<p>Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso.</p>
-<p>Artefacto de reporte | Cumplido en configuracion y localmente | pytest-html-report en GitHub Actions y reports/pytest-report.html local.</p>
-<p>Capturas / evidencia del pipeline | Cumplido | Pipeline ejecutado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464</p>
-<p>Repositorio publico accesible | Cumplido | https://github.com/LaureanoFloresU/tpo2-testing-pipeline</p>
-<p>PDF con portada, indice y paginas | Cumplido | Archivo Flores_1142069_26042026_TPO2.pdf.</p>
-<p>Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10.</p>
-<p>Bibliografia | Cumplido | Incluida en la seccion 11.</p>
 </section>
 </body></html>

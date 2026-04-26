@@ -5,3 +5,4 @@ pytest-cache-files-*/
 .pip-tmp/
 reports/
 *.pyc
+Flores_1142069_26042026_TPO2.*
