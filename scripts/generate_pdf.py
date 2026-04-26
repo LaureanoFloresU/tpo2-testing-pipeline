@@ -191,7 +191,7 @@ def cover_stream(total_pages: int) -> str:
         "BT /F1 12 Tf 1 0 0 1 70 410 Tm (Alumno: Laureano Tomas Flores) Tj ET",
         "BT /F1 12 Tf 1 0 0 1 70 386 Tm (Legajo: 1142069) Tj ET",
         "BT /F1 12 Tf 1 0 0 1 70 362 Tm (Docente: ABEL ISRAEL LAIME HUANCA) Tj ET",
-        "BT /F1 12 Tf 1 0 0 1 70 338 Tm (Fecha: 26/04/2026) Tj ET",
+        "BT /F1 12 Tf 1 0 0 1 70 338 Tm (Fecha: 28/04/2026) Tj ET",
         "BT /F1 10 Tf 1 0 0 1 70 96 Tm (Trabajo Practico Obligatorio - Integracion de testing automatizado y CI/CD) Tj ET",
         f"BT /F1 9 Tf 1 0 0 1 70 34 Tm ({pdf_escape(f'Pagina 1 de {total_pages}')}) Tj ET",
     ]
@@ -328,7 +328,7 @@ def write_html(markdown: str) -> None:
         "<section class='page cover'><h1>TPO2</h1><h2>Automatizacion de pruebas y pipeline CI/CD</h2>"
         "<div class='meta'><p><strong>Alumno:</strong> Laureano Tomás Flores</p><p><strong>Legajo:</strong> 1142069</p>"
         "<p><strong>Materia:</strong> Testing de Aplicaciones (14883)</p><p><strong>Docente:</strong> ABEL ISRAEL LAIME HUANCA</p>"
-        "<p><strong>Fecha:</strong> 26/04/2026</p></div></section>",
+        "<p><strong>Fecha:</strong> 28/04/2026</p></div></section>",
     ]
     page_open = False
     for block in blocks:
@@ -385,7 +385,7 @@ def write_docx(markdown: str) -> None:
         paragraph("Legajo: 1142069"),
         paragraph("Materia: Testing de Aplicaciones (14883)"),
         paragraph("Docente: ABEL ISRAEL LAIME HUANCA"),
-        paragraph("Fecha: 26/04/2026"),
+        paragraph("Fecha: 28/04/2026"),
         '<w:p><w:r><w:br w:type="page"/></w:r></w:p>',
     ]
     for block in blocks:

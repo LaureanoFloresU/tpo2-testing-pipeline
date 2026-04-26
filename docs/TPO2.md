@@ -6,7 +6,7 @@
 **Legajo:** 1142069  
 **Materia:** Testing de Aplicaciones (14883)  
 **Docente:** ABEL ISRAEL LAIME HUANCA  
-**Fecha:** 26/04/2026  
+**Fecha:** 28/04/2026  
 
 <!-- pagebreak -->
 
