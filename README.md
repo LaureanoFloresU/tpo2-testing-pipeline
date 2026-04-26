@@ -23,7 +23,23 @@ python -m pip install -r requirements.txt
 pytest --html=reports/pytest-report.html --self-contained-html
 ```
 
+## Ejecutar la aplicacion
+
+En PowerShell:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m descuentos.main
+```
+
+Ejemplo de uso:
+
+```text
+Ingrese el monto de la compra: 10000
+Ingrese el tipo de cliente (regular, premium, vip): premium
+Precio final: $9000.00
+```
+
 ## Pipeline
 
 El workflow de GitHub Actions se ejecuta automaticamente en cada `push` y `pull_request`. Instala dependencias, ejecuta los tests y publica el reporte HTML como artefacto.
-
