@@ -182,8 +182,8 @@ El pipeline fue configurado correctamente en `.github/workflows/ci.yml`. La evid
 - Reporte HTML generado en `reports/pytest-report.html`.
 - Proyecto empaquetado en `Flores_1142069_26042026_TPO2_repositorio.zip`.
 - Repositorio publico: https://github.com/LaureanoFloresU/tpo2-testing-pipeline
-- Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352
-- Job `test` finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352/job/73104107486
+- Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464
+- Job `test` finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464/job/73104237761
 - Artefacto generado: `pytest-html-report`.
 
 Al realizar el `push`, el workflow `Python tests` debe verse en la pestaña Actions del repositorio. La ejecucion correcta debe mostrar:
@@ -193,7 +193,7 @@ Al realizar el `push`, el workflow `Python tests` debe verse en la pestaña Acti
 - Paso `Install dependencies`: OK.
 - Paso `Run automated tests`: OK.
 - Artefacto disponible: `pytest-html-report`.
-- Commit ejecutado: `30631744595d020879f918eb0c3e6c5490680906`.
+- Commit ejecutado: `7f2af7318fc92a41bb6031231e8c22b561819775`.
 
 ### Resultado de los tests
 
@@ -273,7 +273,7 @@ Como mejoras futuras se podrian implementar:
 | Ejecutar tests | Cumplido | Paso `Run automated tests`. |
 | Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso. |
 | Artefacto de reporte | Cumplido en configuracion y localmente | `pytest-html-report` en GitHub Actions y `reports/pytest-report.html` local. |
-| Capturas / evidencia del pipeline | Cumplido | Pipeline ejecutado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352 |
+| Capturas / evidencia del pipeline | Cumplido | Pipeline ejecutado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967311464 |
 | Repositorio publico accesible | Cumplido | https://github.com/LaureanoFloresU/tpo2-testing-pipeline |
 | PDF con portada, indice y paginas | Cumplido | Archivo `Flores_1142069_26042026_TPO2.pdf`. |
 | Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10. |
