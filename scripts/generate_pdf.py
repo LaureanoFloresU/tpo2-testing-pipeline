@@ -1,84 +1,113 @@
 from pathlib import Path
 import re
 import textwrap
+import zipfile
+from html import escape
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs" / "TPO2.md"
-OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.pdf"
+PDF_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.pdf"
+HTML_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.html"
+DOCX_OUTPUT = ROOT / "Flores_1142069_26042026_TPO2.docx"
 
 PAGE_WIDTH = 595
 PAGE_HEIGHT = 842
 MARGIN_X = 54
 MARGIN_TOP = 58
 MARGIN_BOTTOM = 58
-LINE_HEIGHT = 14
-CHARS_PER_LINE = 88
 
 
-def clean_markdown(line: str) -> tuple[str, int]:
-    level = 0
-    if line.startswith("# "):
-        level = 1
-        line = line[2:]
-    elif line.startswith("## "):
-        level = 2
-        line = line[3:]
-    elif line.startswith("### "):
-        level = 3
-        line = line[4:]
-
-    line = line.replace("`", "")
-    line = line.replace("**", "")
-    line = re.sub(r"\[(.*?)\]\((.*?)\)", r"\1 (\2)", line)
-    return line.rstrip(), level
+def strip_md(text: str) -> str:
+    text = text.replace("`", "")
+    text = text.replace("**", "")
+    text = re.sub(r"\[(.*?)\]\((.*?)\)", r"\1 (\2)", text)
+    return text
 
 
-def build_lines(markdown: str) -> list[tuple[str, int]]:
-    lines: list[tuple[str, int]] = []
+def markdown_to_blocks(markdown: str) -> list[tuple[str, str]]:
+    blocks: list[tuple[str, str]] = []
     in_code = False
+    code_lines: list[str] = []
 
     for raw in markdown.splitlines():
-        if raw.strip().startswith("```"):
-            in_code = not in_code
-            lines.append(("", 0))
-            continue
-
-        text, level = clean_markdown(raw)
-        if not text:
-            lines.append(("", 0))
+        line = raw.rstrip()
+        if line.strip().startswith("```"):
+            if in_code:
+                blocks.append(("code", "\n".join(code_lines)))
+                code_lines = []
+                in_code = False
+            else:
+                in_code = True
             continue
 
         if in_code:
-            wrapped = textwrap.wrap(text, width=80, replace_whitespace=False) or [text]
-            lines.extend((f"    {part}", 0) for part in wrapped)
+            code_lines.append(line)
             continue
 
-        if text.startswith("|"):
-            text = re.sub(r"\s*\|\s*", " | ", text.strip("| "))
+        if not line.strip():
+            blocks.append(("blank", ""))
+        elif line.startswith("# "):
+            blocks.append(("h1", strip_md(line[2:])))
+        elif line.startswith("## "):
+            blocks.append(("h2", strip_md(line[3:])))
+        elif line.startswith("### "):
+            blocks.append(("h3", strip_md(line[4:])))
+        elif line.startswith("- "):
+            blocks.append(("p", "- " + strip_md(line[2:])))
+        elif re.match(r"^\d+\. ", line):
+            blocks.append(("p", strip_md(line)))
+        elif line.startswith("|"):
+            table_text = " | ".join(part.strip() for part in line.strip("|").split("|"))
+            if not set(table_text.replace("|", "").replace("-", "").replace(" ", "")):
+                continue
+            blocks.append(("p", strip_md(table_text)))
+        else:
+            blocks.append(("p", strip_md(line)))
 
-        width = 58 if level == 1 else 70 if level in (2, 3) else CHARS_PER_LINE
-        for part in textwrap.wrap(text, width=width):
-            lines.append((part, level))
+    return blocks
 
+
+def blocks_to_pdf_lines(blocks: list[tuple[str, str]]) -> list[tuple[str, int, str]]:
+    lines: list[tuple[str, int, str]] = []
+    for kind, text in blocks:
+        if kind == "blank":
+            lines.append(("", 10, "F1"))
+            continue
+        if kind == "h1":
+            wrap_width, size, font = 50, 17, "F2"
+        elif kind == "h2":
+            wrap_width, size, font = 64, 13, "F2"
+        elif kind == "h3":
+            wrap_width, size, font = 70, 11, "F2"
+        elif kind == "code":
+            wrap_width, size, font = 78, 9, "F1"
+        else:
+            wrap_width, size, font = 88, 10, "F1"
+
+        wrapped = []
+        for part in text.splitlines() or [""]:
+            wrapped.extend(textwrap.wrap(part, width=wrap_width, replace_whitespace=False) or [""])
+        for part in wrapped:
+            lines.append((part, size, font))
+        if kind in {"h1", "h2", "h3", "code"}:
+            lines.append(("", 8, "F1"))
     return lines
 
 
-def paginate(lines: list[tuple[str, int]]) -> list[list[tuple[str, int]]]:
-    pages: list[list[tuple[str, int]]] = []
-    current: list[tuple[str, int]] = []
-    y = MARGIN_TOP
-
-    for text, level in lines:
-        extra = 8 if level == 1 else 5 if level in (2, 3) else 0
-        needed = LINE_HEIGHT + extra
-        if y + needed > PAGE_HEIGHT - MARGIN_BOTTOM:
+def paginate(lines: list[tuple[str, int, str]]) -> list[list[tuple[str, int, str]]]:
+    pages: list[list[tuple[str, int, str]]] = []
+    current: list[tuple[str, int, str]] = []
+    y = PAGE_HEIGHT - MARGIN_TOP
+    for line in lines:
+        _, size, _ = line
+        step = max(size + 5, 13)
+        if y - step < MARGIN_BOTTOM:
             pages.append(current)
             current = []
-            y = MARGIN_TOP
-        current.append((text, level))
-        y += needed
-
+            y = PAGE_HEIGHT - MARGIN_TOP
+        current.append(line)
+        y -= step
     if current:
         pages.append(current)
     return pages
@@ -89,70 +118,53 @@ def pdf_escape(text: str) -> str:
     return text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
 
 
-def content_stream(page: list[tuple[str, int]], page_number: int, total_pages: int) -> str:
-    commands = ["BT"]
+def content_stream(page: list[tuple[str, int, str]], page_number: int, total_pages: int) -> str:
+    commands: list[str] = []
     y = PAGE_HEIGHT - MARGIN_TOP
+    for text, size, font in page:
+        step = max(size + 5, 13)
+        if text:
+            commands.append("BT")
+            commands.append(f"/{font} {size} Tf")
+            commands.append(f"1 0 0 1 {MARGIN_X} {y} Tm")
+            commands.append(f"({pdf_escape(text)}) Tj")
+            commands.append("ET")
+        y -= step
 
-    for text, level in page:
-        if not text:
-            y -= LINE_HEIGHT
-            continue
-
-        if level == 1:
-            size = 18
-            font = "F2"
-            y -= 8
-        elif level in (2, 3):
-            size = 13
-            font = "F2"
-            y -= 5
-        else:
-            size = 10
-            font = "F1"
-
-        commands.append(f"/{font} {size} Tf")
-        commands.append(f"{MARGIN_X} {y} Td ({pdf_escape(text)}) Tj")
-        commands.append(f"{-MARGIN_X} {-LINE_HEIGHT} Td")
-        y -= LINE_HEIGHT
-
-    footer = f"Pagina {page_number} de {total_pages}"
+    commands.append("BT")
     commands.append("/F1 9 Tf")
-    commands.append(f"{MARGIN_X} {MARGIN_BOTTOM - 20} Td ({pdf_escape(footer)}) Tj")
+    commands.append(f"1 0 0 1 {MARGIN_X} 34 Tm")
+    commands.append(f"({pdf_escape(f'Pagina {page_number} de {total_pages}')}) Tj")
     commands.append("ET")
     return "\n".join(commands)
 
 
-def write_pdf(pages: list[list[tuple[str, int]]]) -> None:
+def write_pdf(pages: list[list[tuple[str, int, str]]]) -> None:
     objects: list[str] = []
     objects.append("<< /Type /Catalog /Pages 2 0 R >>")
 
-    page_objects = []
-    content_objects = []
     first_page_obj = 3
-    for index in range(len(pages)):
-        page_obj = first_page_obj + index * 2
-        content_obj = page_obj + 1
-        page_objects.append(page_obj)
-        content_objects.append(content_obj)
-
-    kids = " ".join(f"{obj} 0 R" for obj in page_objects)
+    font_regular_obj = first_page_obj + len(pages) * 2
+    font_bold_obj = font_regular_obj + 1
+    kids = " ".join(f"{first_page_obj + index * 2} 0 R" for index in range(len(pages)))
     objects.append(f"<< /Type /Pages /Kids [{kids}] /Count {len(pages)} >>")
 
-    total = len(pages)
     for index, page in enumerate(pages, start=1):
-        content = content_stream(page, index, total)
+        page_obj = first_page_obj + (index - 1) * 2
+        content_obj = page_obj + 1
+        stream = content_stream(page, index, len(pages))
+        encoded = stream.encode("latin-1", "replace")
         objects.append(
             "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] "
-            f"/Resources << /Font << /F1 {first_page_obj + total * 2} 0 R "
-            f"/F2 {first_page_obj + total * 2 + 1} 0 R >> >> "
-            f"/Contents {first_page_obj + (index - 1) * 2 + 1} 0 R >>"
+            f"/Resources << /Font << /F1 {font_regular_obj} 0 R /F2 {font_bold_obj} 0 R >> >> "
+            f"/Contents {content_obj} 0 R >>"
         )
-        objects.append(f"<< /Length {len(content.encode('latin-1', 'replace'))} >>\nstream\n{content}\nendstream")
+        objects.append(f"<< /Length {len(encoded)} >>\nstream\n{stream}\nendstream")
 
-    objects.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
-    objects.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>")
+    objects.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>")
+    objects.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>")
 
-    pdf = bytearray(b"%PDF-1.4\n")
+    pdf = bytearray(b"%PDF-1.4\n%\xe2\xe3\xcf\xd3\n")
     offsets = [0]
     for number, obj in enumerate(objects, start=1):
         offsets.append(len(pdf))
@@ -166,17 +178,111 @@ def write_pdf(pages: list[list[tuple[str, int]]]) -> None:
     pdf.extend(
         f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n".encode("ascii")
     )
+    PDF_OUTPUT.write_bytes(pdf)
 
-    OUTPUT.write_bytes(pdf)
+
+def write_html(markdown: str) -> None:
+    blocks = markdown_to_blocks(markdown)
+    html_parts = [
+        "<!doctype html><html><head><meta charset='utf-8'>",
+        "<title>TPO2 - Automatizacion de pruebas y pipeline CI/CD</title>",
+        "<style>body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;line-height:1.5;color:#222}"
+        "h1,h2,h3{color:#111}code,pre{background:#f3f3f3;padding:2px 4px}"
+        "pre{padding:12px;white-space:pre-wrap}p{margin:8px 0}</style></head><body>",
+    ]
+    for kind, text in blocks:
+        safe = escape(text)
+        if kind == "blank":
+            html_parts.append("<br>")
+        elif kind in {"h1", "h2", "h3"}:
+            html_parts.append(f"<{kind}>{safe}</{kind}>")
+        elif kind == "code":
+            html_parts.append(f"<pre>{safe}</pre>")
+        else:
+            html_parts.append(f"<p>{safe}</p>")
+    html_parts.append("</body></html>")
+    HTML_OUTPUT.write_text("\n".join(html_parts), encoding="utf-8")
+
+
+def write_docx(markdown: str) -> None:
+    blocks = markdown_to_blocks(markdown)
+
+    def paragraph(text: str, style: str | None = None) -> str:
+        style_xml = f'<w:pPr><w:pStyle w:val="{style}"/></w:pPr>' if style else ""
+        return f"<w:p>{style_xml}<w:r><w:t xml:space=\"preserve\">{escape(text)}</w:t></w:r></w:p>"
+
+    body = []
+    for kind, text in blocks:
+        if kind == "blank":
+            body.append(paragraph(""))
+        elif kind == "h1":
+            body.append(paragraph(text, "Title"))
+        elif kind == "h2":
+            body.append(paragraph(text, "Heading1"))
+        elif kind == "h3":
+            body.append(paragraph(text, "Heading2"))
+        elif kind == "code":
+            for line in text.splitlines():
+                body.append(paragraph(line))
+        else:
+            body.append(paragraph(text))
+
+    document_xml = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        "<w:body>"
+        + "".join(body)
+        + '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" '
+        'w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>'
+        "</w:body></w:document>"
+    )
+    content_types = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+        '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+        '<Default Extension="xml" ContentType="application/xml"/>'
+        '<Override PartName="/word/document.xml" '
+        'ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'
+        '<Override PartName="/word/styles.xml" '
+        'ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>'
+        "</Types>"
+    )
+    rels = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" '
+        'Target="word/document.xml"/></Relationships>'
+    )
+    styles = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        '<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/>'
+        '<w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style>'
+        '<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="Heading 1"/>'
+        '<w:rPr><w:b/><w:sz w:val="28"/></w:rPr></w:style>'
+        '<w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="Heading 2"/>'
+        '<w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style>'
+        "</w:styles>"
+    )
+
+    with zipfile.ZipFile(DOCX_OUTPUT, "w", zipfile.ZIP_DEFLATED) as docx:
+        docx.writestr("[Content_Types].xml", content_types)
+        docx.writestr("_rels/.rels", rels)
+        docx.writestr("word/document.xml", document_xml)
+        docx.writestr("word/styles.xml", styles)
 
 
 def main() -> None:
-    lines = build_lines(SOURCE.read_text(encoding="utf-8"))
-    pages = paginate(lines)
+    markdown = SOURCE.read_text(encoding="utf-8")
+    blocks = markdown_to_blocks(markdown)
+    pages = paginate(blocks_to_pdf_lines(blocks))
     write_pdf(pages)
-    print(f"PDF generado: {OUTPUT}")
+    write_html(markdown)
+    write_docx(markdown)
+    print(f"PDF generado: {PDF_OUTPUT}")
+    print(f"HTML generado: {HTML_OUTPUT}")
+    print(f"DOCX generado: {DOCX_OUTPUT}")
 
 
 if __name__ == "__main__":
     main()
-

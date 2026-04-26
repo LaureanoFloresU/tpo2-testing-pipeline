@@ -1,0 +1,223 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>TPO2 - Automatizacion de pruebas y pipeline CI/CD</title>
+<style>body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;line-height:1.5;color:#222}h1,h2,h3{color:#111}code,pre{background:#f3f3f3;padding:2px 4px}pre{padding:12px;white-space:pre-wrap}p{margin:8px 0}</style></head><body>
+<h1>TPO2 - Automatizacion de pruebas y pipeline CI/CD</h1>
+<br>
+<p>Alumno: Laureano Tomás Flores</p>
+<p>Legajo: 1142069</p>
+<p>Materia: Testing de Aplicaciones (14883)</p>
+<p>Docente: ABEL ISRAEL LAIME HUANCA</p>
+<p>Fecha: 26/04/2026</p>
+<p>Repositorio público previsto: https://github.com/LaureanoFloresU/tpo2-testing-pipeline</p>
+<br>
+<h2>Indice</h2>
+<br>
+<p>1. Introduccion</p>
+<p>2. Objetivo del trabajo</p>
+<p>3. Desarrollo de la aplicacion</p>
+<p>4. Parte 1 - Diseno del escenario de prueba</p>
+<p>5. Parte 2 - Automatizacion de pruebas</p>
+<p>6. Parte 3 - Pipeline CI/CD</p>
+<p>7. Parte 4 - Evidencia y analisis</p>
+<p>8. Parte 5 - Reflexion</p>
+<p>9. Conclusiones personales</p>
+<p>10. Propuestas de futuras mejoras</p>
+<p>11. Bibliografia</p>
+<br>
+<h2>1. Introduccion</h2>
+<br>
+<p>Este trabajo practico tiene como objetivo aplicar conceptos de testing automatizado y DevOps mediante una solucion simple desarrollada en Python. La propuesta consiste en crear una funcionalidad sencilla, definir escenarios de prueba, automatizarlos con pytest e integrarlos a un pipeline de integracion continua usando GitHub Actions.</p>
+<br>
+<p>La funcionalidad elegida fue un sistema de descuentos. La aplicacion calcula el precio final de una compra de acuerdo con el tipo de cliente y el monto ingresado. Esta eleccion permite cubrir casos exitosos, errores de validacion y casos borde de forma clara.</p>
+<br>
+<h2>2. Objetivo del trabajo</h2>
+<br>
+<p>El objetivo es implementar un flujo basico de automatizacion de pruebas integrado a un pipeline CI/CD. Para cumplirlo se desarrollo una aplicacion en Python, se escribieron pruebas automatizadas con pytest y se configuro un workflow de GitHub Actions que instala dependencias, ejecuta los tests y genera un reporte HTML como artefacto.</p>
+<br>
+<h2>3. Desarrollo de la aplicacion</h2>
+<br>
+<p>La aplicacion se encuentra dentro de la carpeta src/descuentos. La funcion principal es calcular_precio_final(monto, tipo_cliente).</p>
+<br>
+<p>Reglas implementadas:</p>
+<br>
+<p>- Cliente regular: no recibe descuento.</p>
+<p>- Cliente premium: recibe 10% de descuento.</p>
+<p>- Cliente vip: recibe 20% de descuento.</p>
+<p>- Compras desde $100000 reciben 5% adicional.</p>
+<p>- No se aceptan montos negativos.</p>
+<p>- No se aceptan tipos de cliente desconocidos.</p>
+<br>
+<p>Estructura del proyecto:</p>
+<br>
+<pre>.
+|-- .github/workflows/ci.yml
+|-- docs/TPO2.md
+|-- reports/pytest-report.html
+|-- scripts/generate_pdf.py
+|-- src/descuentos/
+|   |-- __init__.py
+|   |-- calculator.py
+|   `-- main.py
+|-- tests/test_calculator.py
+|-- pyproject.toml
+|-- requirements.txt
+`-- README.md</pre>
+<br>
+<h2>4. Parte 1 - Diseno del escenario de prueba</h2>
+<br>
+<h3>Escenario de prueba</h3>
+<br>
+<p>El escenario elegido representa una compra en la que el sistema debe calcular el precio final luego de aplicar descuentos. El contexto simula una aplicacion comercial simple donde diferentes tipos de clientes obtienen distintos beneficios.</p>
+<br>
+<h3>Casos de prueba definidos</h3>
+<br>
+<p>Caso | Tipo | Datos de entrada | Resultado esperado</p>
+<p>Cliente premium | Caso exitoso | Monto: 10000, cliente: premium | Precio final: 9000</p>
+<p>Monto negativo | Caso de error | Monto: -1, cliente: regular | Se lanza ValueError</p>
+<p>Compra en limite | Caso borde | Monto: 100000, cliente: vip | Precio final: 75000</p>
+<p>Cliente inexistente | Caso de error adicional | Monto: 5000, cliente: estudiante | Se lanza ValueError</p>
+<br>
+<p>El caso borde es importante porque verifica que el descuento adicional se aplique exactamente en el limite definido por la regla de negocio: compras desde $100000.</p>
+<br>
+<h2>5. Parte 2 - Automatizacion de pruebas</h2>
+<br>
+<p>Los casos fueron automatizados con Python y pytest. El archivo de pruebas es tests/test_calculator.py.</p>
+<br>
+<p>Tests automatizados:</p>
+<br>
+<p>- test_cliente_premium_recibe_descuento_exitoso</p>
+<p>- test_monto_negativo_genera_error</p>
+<p>- test_compra_en_limite_recibe_descuento_adicional</p>
+<p>- test_tipo_cliente_desconocido_genera_error</p>
+<br>
+<p>Comando para ejecutar las pruebas:</p>
+<br>
+<pre>pytest --html=reports/pytest-report.html --self-contained-html</pre>
+<br>
+<p>Resultado local obtenido:</p>
+<br>
+<pre>4 passed</pre>
+<br>
+<p>Este resultado confirma que la logica del sistema cumple con los escenarios definidos.</p>
+<br>
+<h2>6. Parte 3 - Pipeline CI/CD</h2>
+<br>
+<p>El pipeline fue configurado con GitHub Actions en el archivo .github/workflows/ci.yml.</p>
+<br>
+<p>El workflow se ejecuta automaticamente ante:</p>
+<br>
+<p>- push</p>
+<p>- pull_request</p>
+<br>
+<p>Pasos del pipeline:</p>
+<br>
+<p>1. Descarga el repositorio con actions/checkout@v4.</p>
+<p>2. Configura Python 3.12 con actions/setup-python@v5.</p>
+<p>3. Instala dependencias desde requirements.txt.</p>
+<p>4. Ejecuta los tests automatizados con pytest.</p>
+<p>5. Genera el reporte HTML con pytest-html.</p>
+<p>6. Publica el reporte como artefacto llamado pytest-html-report.</p>
+<br>
+<p>Fragmento del pipeline:</p>
+<br>
+<pre>name: Python tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: &quot;3.12&quot;
+      - run: pip install -r requirements.txt
+      - run: pytest --html=reports/pytest-report.html --self-contained-html</pre>
+<br>
+<p>El artefacto generado permite descargar un reporte visual de los tests ejecutados.</p>
+<br>
+<h2>7. Parte 4 - Evidencia y analisis</h2>
+<br>
+<h3>Evidencia de ejecucion local</h3>
+<br>
+<p>La ejecucion local de pytest finalizo correctamente:</p>
+<br>
+<pre>tests/test_calculator.py::test_cliente_premium_recibe_descuento_exitoso PASSED
+tests/test_calculator.py::test_monto_negativo_genera_error PASSED
+tests/test_calculator.py::test_compra_en_limite_recibe_descuento_adicional PASSED
+tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
+4 passed</pre>
+<br>
+<h3>Evidencia esperada del pipeline</h3>
+<br>
+<p>Una vez publicado el repositorio en GitHub, el workflow Python tests debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:</p>
+<br>
+<p>- Estado general del workflow: OK.</p>
+<p>- Job test: OK.</p>
+<p>- Paso Install dependencies: OK.</p>
+<p>- Paso Run automated tests: OK.</p>
+<p>- Artefacto disponible: pytest-html-report.</p>
+<br>
+<h3>Resultado de los tests</h3>
+<br>
+<p>Test | Resultado</p>
+<p>Cliente premium recibe descuento exitoso | OK</p>
+<p>Monto negativo genera error | OK</p>
+<p>Compra en limite recibe descuento adicional | OK</p>
+<p>Tipo de cliente desconocido genera error | OK</p>
+<br>
+<h3>Explicacion de resultados</h3>
+<br>
+<p>Los tests pasaron porque la funcion implementada respeta las reglas de negocio. El caso exitoso confirma el descuento premium, el caso de error valida que un monto negativo no sea aceptado, el caso borde comprueba el limite exacto de $100000 y el caso de cliente inexistente verifica que el sistema rechace datos invalidos.</p>
+<br>
+<h3>Ventaja de automatizar pruebas dentro del pipeline</h3>
+<br>
+<p>Automatizar pruebas dentro del pipeline permite detectar errores automaticamente cada vez que se sube codigo al repositorio. Esto evita depender solamente de revisiones manuales y ayuda a impedir que cambios defectuosos lleguen a la rama principal.</p>
+<br>
+<h3>Impacto en la calidad del software</h3>
+<br>
+<p>El impacto es positivo porque aumenta la confianza sobre cada cambio. Tambien mejora la trazabilidad, ya que GitHub Actions conserva logs de cada ejecucion. Esto permite saber que version del codigo fue probada, que tests se ejecutaron y cual fue el resultado.</p>
+<br>
+<h2>8. Parte 5 - Reflexion</h2>
+<br>
+<h3>Beneficios de automatizar pruebas frente a hacerlas manualmente</h3>
+<br>
+<p>Automatizar pruebas permite ahorrar tiempo, repetir validaciones sin esfuerzo adicional y reducir errores humanos. Las pruebas manuales pueden ser utiles para explorar el sistema, pero las pruebas automatizadas son mejores para comprobar reglas conocidas de manera constante.</p>
+<br>
+<h3>Dificultades encontradas al implementar el pipeline</h3>
+<br>
+<p>Una dificultad fue asegurar que todas las dependencias estuvieran declaradas correctamente en requirements.txt. Otra dificultad fue ordenar la estructura del proyecto para que pytest pudiera importar el codigo desde src. Tambien fue necesario generar un artefacto HTML para cumplir con la evidencia solicitada.</p>
+<br>
+<h3>Donde aplicaria este enfoque en un entorno real</h3>
+<br>
+<p>Aplicaria este enfoque en proyectos web, APIs, sistemas administrativos, sistemas de ventas, facturacion o cualquier aplicacion que tenga reglas de negocio importantes. En un entorno real, automatizar pruebas dentro del pipeline ayuda a trabajar en equipo y reduce el riesgo de romper funcionalidades existentes.</p>
+<br>
+<h2>9. Conclusiones personales</h2>
+<br>
+<p>El trabajo muestra como se conectan el desarrollo de software, el testing y las practicas DevOps. La automatizacion no reemplaza completamente el criterio humano, pero permite construir una base de validacion objetiva y repetible.</p>
+<br>
+<p>Integrar pytest con GitHub Actions permite que cada cambio sea verificado automaticamente. Esto mejora la calidad del proceso de desarrollo y facilita detectar errores antes de que lleguen a produccion.</p>
+<br>
+<h2>10. Propuestas de futuras mejoras</h2>
+<br>
+<p>Como mejoras futuras se podrian implementar:</p>
+<br>
+<p>- Agregar mas reglas de descuento.</p>
+<p>- Usar tests parametrizados para cubrir mas combinaciones.</p>
+<p>- Incorporar cobertura de codigo con pytest-cov.</p>
+<p>- Agregar analisis de estilo con ruff.</p>
+<p>- Publicar el reporte HTML como pagina estatica.</p>
+<p>- Agregar ramas protegidas para exigir que el pipeline pase antes de integrar cambios.</p>
+<p>- Incorporar pruebas de integracion si la aplicacion crece.</p>
+<br>
+<h2>11. Bibliografia</h2>
+<br>
+<p>- Python Software Foundation. Documentacion oficial de Python: https://docs.python.org/3/</p>
+<p>- pytest. Documentacion oficial: https://docs.pytest.org/</p>
+<p>- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions</p>
+<p>- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/</p>
+<br>
+</body></html>
