@@ -1,8 +1,8 @@
-# Portada
+﻿# Portada
 
 # TPO2 - Automatizacion de pruebas y pipeline CI/CD
 
-**Alumno:** Laureano Tomás Flores  
+**Alumno:** Laureano TomÃ¡s Flores  
 **Legajo:** 1142069  
 **Materia:** Testing de Aplicaciones (14883)  
 **Docente:** ABEL ISRAEL LAIME HUANCA  
@@ -184,8 +184,14 @@ El pipeline fue configurado correctamente en `.github/workflows/ci.yml`. La evid
 - Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967342051
 - Job `test` finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967342051/job/73104323528
 - Artefacto generado: `pytest-html-report`.
+- Captura 1: listado de workflows con ejecuciones exitosas.
+- Captura 2: detalle del workflow con estado `Success` y artefacto `pytest-html-report`.
 
-Al realizar el `push`, el workflow `Python tests` debe verse en la pestaña Actions del repositorio. La ejecucion correcta debe mostrar:
+![Captura del listado de workflows exitosos](docs/evidencias/pipeline_lista.jpg)
+
+![Captura del detalle del workflow exitoso y artefacto generado](docs/evidencias/pipeline_detalle.jpg)
+
+Al realizar el `push`, el workflow `Python tests` debe verse en la pestaÃ±a Actions del repositorio. La ejecucion correcta debe mostrar:
 
 - Estado general del workflow: completed / success.
 - Job `test`: completed / success.
@@ -253,3 +259,4 @@ Como mejoras futuras se podrian implementar:
 - pytest. Documentacion oficial: https://docs.pytest.org/
 - GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions
 - pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/
+

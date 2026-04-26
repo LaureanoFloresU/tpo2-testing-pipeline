@@ -113,6 +113,12 @@ def markdown_to_blocks(markdown: str) -> list[Block]:
             if text == "Indice":
                 in_index = True
             append_block(blocks, Block("h2", text, bookmark_for(text)))
+        elif line.startswith("!["):
+            match = re.match(r"!\[(.*?)\]\((.*?)\)", line)
+            if match:
+                append_block(blocks, Block("image", f"{match.group(1)}\t{match.group(2)}"))
+            else:
+                append_block(blocks, Block("p", strip_md(line)))
         elif line.startswith("### "):
             append_block(blocks, Block("h3", strip_md(line[4:])))
         elif line.startswith("- "):
@@ -149,6 +155,12 @@ def blocks_to_pdf_lines(blocks: list[Block]) -> list[PdfLine]:
         elif block.kind == "table":
             for row_index, row in enumerate(block.text.splitlines()):
                 lines.append(PdfLine(row, 8, "F2" if row_index == 0 else "F1", kind="table_header" if row_index == 0 else "table_row"))
+            lines.append(PdfLine("", 8, "F1"))
+            continue
+        elif block.kind == "image":
+            caption, path = block.text.split("\t", 1)
+            lines.append(PdfLine(f"[Imagen: {caption}]", 10, "F2"))
+            lines.append(PdfLine(f"Archivo de evidencia: {path}", 9, "F1"))
             lines.append(PdfLine("", 8, "F1"))
             continue
         else:
@@ -408,6 +420,9 @@ def write_html(markdown: str) -> None:
                 tag = "th" if row_index == 0 else "td"
                 html_parts.append("<tr>" + "".join(f"<{tag}>{escape(cell)}</{tag}>" for cell in row) + "</tr>")
             html_parts.append("</table>")
+        elif block.kind == "image":
+            caption, path = block.text.split("\t", 1)
+            html_parts.append(f"<figure><img src='{escape(path)}' alt='{escape(caption)}' style='max-width:100%;border:1px solid #cbd5e1'><figcaption>{escape(caption)}</figcaption></figure>")
         else:
             html_parts.append(f"<p>{safe}</p>")
     if page_open:
@@ -481,6 +496,10 @@ def write_docx(markdown: str) -> None:
                 + "".join(table_rows)
                 + "</w:tbl>"
             )
+        elif block.kind == "image":
+            caption, path = block.text.split("\t", 1)
+            body.append(paragraph(f"Captura: {caption}"))
+            body.append(paragraph(f"Archivo de evidencia: {path}"))
         else:
             body.append(paragraph(block.text))
 
