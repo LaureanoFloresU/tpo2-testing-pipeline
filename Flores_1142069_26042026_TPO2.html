@@ -1,9 +1,9 @@
 <!doctype html><html><head><meta charset='utf-8'>
 <title>TPO2 - Automatizacion de pruebas y pipeline CI/CD</title>
-<style>body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;line-height:1.5;color:#222}h1,h2,h3{color:#111}code,pre{background:#f3f3f3;padding:2px 4px}pre{padding:12px;white-space:pre-wrap}p{margin:8px 0}</style></head><body>
-<h1>Portada</h1>
+<style>body{font-family:Arial,sans-serif;margin:0;line-height:1.55;color:#222;background:#f5f7fb}.page{max-width:900px;min-height:980px;margin:24px auto;background:white;padding:64px;box-shadow:0 10px 34px #ccd}.cover{background:linear-gradient(135deg,#111827,#0f766e);color:white;display:flex;flex-direction:column;justify-content:center}.cover h1{font-size:54px;margin:0}.cover h2{font-size:30px;margin:12px 0 60px}.meta{border-top:2px solid #5eead4;padding-top:28px}h1,h2,h3{color:#111827}.cover h1,.cover h2{color:white}a{color:#075985;text-decoration:none;font-weight:600}pre{background:#f3f4f6;padding:12px;white-space:pre-wrap;border-left:4px solid #0f766e}p{margin:8px 0}.break{page-break-after:always}@media print{.page{box-shadow:none;margin:0;page-break-after:always}}</style></head><body>
+<section class='page cover'><h1>TPO2</h1><h2>Automatizacion de pruebas y pipeline CI/CD</h2><div class='meta'><p><strong>Alumno:</strong> Laureano Tomás Flores</p><p><strong>Legajo:</strong> 1142069</p><p><strong>Materia:</strong> Testing de Aplicaciones (14883)</p><p><strong>Docente:</strong> ABEL ISRAEL LAIME HUANCA</p><p><strong>Fecha:</strong> 26/04/2026</p></div></section>
+<section class='page'>
 <br>
-<h1>TPO2 - Automatizacion de pruebas y pipeline CI/CD</h1>
 <br>
 <p>Alumno: Laureano Tomás Flores</p>
 <p>Legajo: 1142069</p>
@@ -11,26 +11,28 @@
 <p>Docente: ABEL ISRAEL LAIME HUANCA</p>
 <p>Fecha: 26/04/2026</p>
 <br>
-<div style='page-break-after:always'></div>
+</section>
+<section class='page'>
 <br>
-<h2>Indice</h2>
+<h2 id='Indice'>Indice</h2>
 <br>
-<p>1. Introduccion</p>
-<p>2. Objetivo del trabajo</p>
-<p>3. Desarrollo de la aplicacion</p>
-<p>4. Parte 1 - Diseno del escenario de prueba</p>
-<p>5. Parte 2 - Automatizacion de pruebas</p>
-<p>6. Parte 3 - Pipeline CI/CD</p>
-<p>7. Parte 4 - Evidencia y analisis</p>
-<p>8. Parte 5 - Reflexion</p>
-<p>9. Conclusiones personales</p>
-<p>10. Propuestas de futuras mejoras</p>
-<p>11. Bibliografia</p>
-<p>12. Estado de cumplimiento</p>
+<p><a href='#Sec1'>1. Introduccion</a></p>
+<p><a href='#Sec2'>2. Objetivo del trabajo</a></p>
+<p><a href='#Sec3'>3. Desarrollo de la aplicacion</a></p>
+<p><a href='#Sec4'>4. Parte 1 - Diseno del escenario de prueba</a></p>
+<p><a href='#Sec5'>5. Parte 2 - Automatizacion de pruebas</a></p>
+<p><a href='#Sec6'>6. Parte 3 - Pipeline CI/CD</a></p>
+<p><a href='#Sec7'>7. Parte 4 - Evidencia y analisis</a></p>
+<p><a href='#Sec8'>8. Parte 5 - Reflexion</a></p>
+<p><a href='#Sec9'>9. Conclusiones personales</a></p>
+<p><a href='#Sec10'>10. Propuestas de futuras mejoras</a></p>
+<p><a href='#Sec11'>11. Bibliografia</a></p>
+<p><a href='#Sec12'>12. Estado de cumplimiento</a></p>
 <br>
-<div style='page-break-after:always'></div>
+</section>
+<section class='page'>
 <br>
-<h2>1. Introduccion</h2>
+<h2 id='Sec1'>1. Introduccion</h2>
 <br>
 <p>Este trabajo practico tiene como objetivo aplicar conceptos de testing automatizado y DevOps mediante una solucion simple desarrollada en Python. La propuesta consiste en crear una funcionalidad sencilla, definir escenarios de prueba, automatizarlos con pytest e integrarlos a un pipeline de integracion continua usando GitHub Actions.</p>
 <br>
@@ -42,11 +44,11 @@
 <br>
 <p>Para dejar la entrega completa en esta instancia, se incluye el proyecto local empaquetado en el archivo Flores_1142069_26042026_TPO2_repositorio.zip, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.</p>
 <br>
-<h2>2. Objetivo del trabajo</h2>
+<h2 id='Sec2'>2. Objetivo del trabajo</h2>
 <br>
 <p>El objetivo es implementar un flujo basico de automatizacion de pruebas integrado a un pipeline CI/CD. Para cumplirlo se desarrollo una aplicacion en Python, se escribieron pruebas automatizadas con pytest y se configuro un workflow de GitHub Actions que instala dependencias, ejecuta los tests y genera un reporte HTML como artefacto.</p>
 <br>
-<h2>3. Desarrollo de la aplicacion</h2>
+<h2 id='Sec3'>3. Desarrollo de la aplicacion</h2>
 <br>
 <p>La aplicacion se encuentra dentro de la carpeta src/descuentos. La funcion principal es calcular_precio_final(monto, tipo_cliente).</p>
 <br>
@@ -75,7 +77,7 @@
 |-- requirements.txt
 `-- README.md</pre>
 <br>
-<h2>4. Parte 1 - Diseno del escenario de prueba</h2>
+<h2 id='Sec4'>4. Parte 1 - Diseno del escenario de prueba</h2>
 <br>
 <h3>Escenario de prueba</h3>
 <br>
@@ -91,7 +93,7 @@
 <br>
 <p>El caso borde es importante porque verifica que el descuento adicional se aplique exactamente en el limite definido por la regla de negocio: compras desde $100000.</p>
 <br>
-<h2>5. Parte 2 - Automatizacion de pruebas</h2>
+<h2 id='Sec5'>5. Parte 2 - Automatizacion de pruebas</h2>
 <br>
 <p>Los casos fueron automatizados con Python y pytest. El archivo de pruebas es tests/test_calculator.py.</p>
 <br>
@@ -112,7 +114,7 @@
 <br>
 <p>Este resultado confirma que la logica del sistema cumple con los escenarios definidos.</p>
 <br>
-<h2>6. Parte 3 - Pipeline CI/CD</h2>
+<h2 id='Sec6'>6. Parte 3 - Pipeline CI/CD</h2>
 <br>
 <p>El pipeline fue configurado con GitHub Actions en el archivo .github/workflows/ci.yml.</p>
 <br>
@@ -151,7 +153,7 @@ jobs:
 <br>
 <p>El artefacto generado permite descargar un reporte visual de los tests ejecutados.</p>
 <br>
-<h2>7. Parte 4 - Evidencia y analisis</h2>
+<h2 id='Sec7'>7. Parte 4 - Evidencia y analisis</h2>
 <br>
 <h3>Evidencia de ejecucion local</h3>
 <br>
@@ -202,7 +204,7 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <br>
 <p>El impacto es positivo porque aumenta la confianza sobre cada cambio. Tambien mejora la trazabilidad, ya que GitHub Actions conserva logs de cada ejecucion. Esto permite saber que version del codigo fue probada, que tests se ejecutaron y cual fue el resultado.</p>
 <br>
-<h2>8. Parte 5 - Reflexion</h2>
+<h2 id='Sec8'>8. Parte 5 - Reflexion</h2>
 <br>
 <h3>Beneficios de automatizar pruebas frente a hacerlas manualmente</h3>
 <br>
@@ -216,13 +218,13 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <br>
 <p>Aplicaria este enfoque en proyectos web, APIs, sistemas administrativos, sistemas de ventas, facturacion o cualquier aplicacion que tenga reglas de negocio importantes. En un entorno real, automatizar pruebas dentro del pipeline ayuda a trabajar en equipo y reduce el riesgo de romper funcionalidades existentes.</p>
 <br>
-<h2>9. Conclusiones personales</h2>
+<h2 id='Sec9'>9. Conclusiones personales</h2>
 <br>
 <p>El trabajo muestra como se conectan el desarrollo de software, el testing y las practicas DevOps. La automatizacion no reemplaza completamente el criterio humano, pero permite construir una base de validacion objetiva y repetible.</p>
 <br>
 <p>Integrar pytest con GitHub Actions permite que cada cambio sea verificado automaticamente. Esto mejora la calidad del proceso de desarrollo y facilita detectar errores antes de que lleguen a produccion.</p>
 <br>
-<h2>10. Propuestas de futuras mejoras</h2>
+<h2 id='Sec10'>10. Propuestas de futuras mejoras</h2>
 <br>
 <p>Como mejoras futuras se podrian implementar:</p>
 <br>
@@ -234,14 +236,14 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <p>- Agregar ramas protegidas para exigir que el pipeline pase antes de integrar cambios.</p>
 <p>- Incorporar pruebas de integracion si la aplicacion crece.</p>
 <br>
-<h2>11. Bibliografia</h2>
+<h2 id='Sec11'>11. Bibliografia</h2>
 <br>
 <p>- Python Software Foundation. Documentacion oficial de Python: https://docs.python.org/3/</p>
 <p>- pytest. Documentacion oficial: https://docs.pytest.org/</p>
 <p>- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions</p>
 <p>- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/</p>
 <br>
-<h2>12. Estado de cumplimiento</h2>
+<h2 id='Sec12'>12. Estado de cumplimiento</h2>
 <br>
 <p>Requisito | Estado | Observacion</p>
 <p>Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en src/descuentos/calculator.py.</p>
@@ -263,4 +265,5 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 <p>PDF con portada, indice y paginas | Cumplido | Archivo Flores_1142069_26042026_TPO2.pdf.</p>
 <p>Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10.</p>
 <p>Bibliografia | Cumplido | Incluida en la seccion 11.</p>
+</section>
 </body></html>
