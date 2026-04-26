@@ -35,9 +35,11 @@ La funcionalidad elegida fue un sistema de descuentos. La aplicacion calcula el 
 
 ### Repositorio y archivos entregados
 
-El repositorio publico queda pendiente de publicacion en GitHub porque el repositorio remoto todavia no existe y GitHub respondio `Repository not found` al intentar realizar el `push`.
+El repositorio publico del trabajo es:
 
-Para dejar la entrega completa en esta instancia, se incluye el proyecto local empaquetado en el archivo `Flores_1142069_26042026_TPO2_repositorio.zip`, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.
+https://github.com/LaureanoFloresU/tpo2-testing-pipeline
+
+Ademas, se incluye el proyecto local empaquetado en el archivo `Flores_1142069_26042026_TPO2_repositorio.zip`, que contiene el codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado localmente.
 
 ## 2. Objetivo del trabajo
 
@@ -173,16 +175,15 @@ tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED
 
 ### Evidencia del pipeline
 
-El pipeline fue configurado correctamente en `.github/workflows/ci.yml`, pero no se pudo registrar una captura real de GitHub Actions porque el repositorio remoto publico aun no existe. Al intentar publicar el repositorio en `https://github.com/LaureanoFloresU/tpo2-testing-pipeline.git`, GitHub respondio `Repository not found`.
-
-Por ese motivo, la evidencia disponible en esta entrega es:
+El pipeline fue configurado correctamente en `.github/workflows/ci.yml`. La evidencia disponible en esta entrega es:
 
 - Archivo de workflow incluido en `.github/workflows/ci.yml`.
 - Ejecucion local de pytest finalizada correctamente.
 - Reporte HTML generado en `reports/pytest-report.html`.
 - Proyecto empaquetado en `Flores_1142069_26042026_TPO2_repositorio.zip`.
+- Repositorio publico: https://github.com/LaureanoFloresU/tpo2-testing-pipeline
 
-Cuando el repositorio sea creado en GitHub y se realice el primer `push`, el workflow `Python tests` debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:
+Al realizar el `push`, el workflow `Python tests` debe verse en la pestaña Actions del repositorio. La ejecucion correcta debe mostrar:
 
 - Estado general del workflow: OK.
 - Job `test`: OK.
@@ -268,8 +269,8 @@ Como mejoras futuras se podrian implementar:
 | Ejecutar tests | Cumplido | Paso `Run automated tests`. |
 | Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso. |
 | Artefacto de reporte | Cumplido en configuracion y localmente | `pytest-html-report` en GitHub Actions y `reports/pytest-report.html` local. |
-| Capturas del pipeline | Pendiente | Requiere que exista el repositorio remoto y se ejecute GitHub Actions. |
-| Repositorio publico accesible | Pendiente | No existe actualmente en GitHub; el intento de `push` devolvio `Repository not found`. |
+| Capturas del pipeline | Pendiente de incorporar | Se deben agregar luego de que GitHub Actions finalice en el repositorio publico. |
+| Repositorio publico accesible | Cumplido | https://github.com/LaureanoFloresU/tpo2-testing-pipeline |
 | PDF con portada, indice y paginas | Cumplido | Archivo `Flores_1142069_26042026_TPO2.pdf`. |
 | Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10. |
 | Bibliografia | Cumplido | Incluida en la seccion 11. |

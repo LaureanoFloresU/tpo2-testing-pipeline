@@ -126,7 +126,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 3777 >>
+<< /Length 3537 >>
 stream
 0.08 0.08 0.08 rg
 BT
@@ -192,132 +192,120 @@ ET
 BT
 /F1 10 Tf
 1 0 0 1 56 527 Tm
-(El repositorio publico queda pendiente de publicacion en GitHub porque el repositorio) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 512 Tm
-(remoto todavia no existe y GitHub respondio Repository not found al intentar realizar el) Tj
+(El repositorio publico del trabajo es:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 497 Tm
-(push.) Tj
+(https://github.com/LaureanoFloresU/tpo2-testing-pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 467 Tm
-(Para dejar la entrega completa en esta instancia, se incluye el proyecto local) Tj
+(Ademas, se incluye el proyecto local empaquetado en el archivo) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 452 Tm
-(empaquetado en el archivo Flores_1142069_26042026_TPO2_repositorio.zip, que contiene el) Tj
+(Flores_1142069_26042026_TPO2_repositorio.zip, que contiene el codigo fuente, los tests,) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 437 Tm
-(codigo fuente, los tests, el workflow de GitHub Actions y el reporte HTML generado) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 422 Tm
-(localmente.) Tj
+(el workflow de GitHub Actions y el reporte HTML generado localmente.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 392 Tm
+1 0 0 1 56 407 Tm
 (2. Objetivo del trabajo) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 345 Tm
+1 0 0 1 56 360 Tm
 (El objetivo es implementar un flujo basico de automatizacion de pruebas integrado a un) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 330 Tm
+1 0 0 1 56 345 Tm
 (pipeline CI/CD. Para cumplirlo se desarrollo una aplicacion en Python, se escribieron) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 315 Tm
+1 0 0 1 56 330 Tm
 (pruebas automatizadas con pytest y se configuro un workflow de GitHub Actions que) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 300 Tm
+1 0 0 1 56 315 Tm
 (instala dependencias, ejecuta los tests y genera un reporte HTML como artefacto.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 270 Tm
+1 0 0 1 56 285 Tm
 (3. Desarrollo de la aplicacion) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 223 Tm
+1 0 0 1 56 238 Tm
 (La aplicacion se encuentra dentro de la carpeta src/descuentos. La funcion principal es) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 208 Tm
+1 0 0 1 56 223 Tm
 (calcular_precio_final\(monto, tipo_cliente\).) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 178 Tm
+1 0 0 1 56 193 Tm
 (Reglas implementadas:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 148 Tm
+1 0 0 1 56 163 Tm
 (- Cliente regular: no recibe descuento.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 133 Tm
+1 0 0 1 56 148 Tm
 (- Cliente premium: recibe 10% de descuento.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 118 Tm
+1 0 0 1 56 133 Tm
 (- Cliente vip: recibe 20% de descuento.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 103 Tm
+1 0 0 1 56 118 Tm
 (- Compras desde $100000 reciben 5% adicional.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 88 Tm
+1 0 0 1 56 103 Tm
 (- No se aceptan montos negativos.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 73 Tm
+1 0 0 1 56 88 Tm
 (- No se aceptan tipos de cliente desconocidos.) Tj
 ET
 0.35 0.35 0.35 rg
@@ -331,199 +319,205 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 10 0 R >>
 endobj
 10 0 obj
-<< /Length 3233 >>
+<< /Length 3338 >>
 stream
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 769 Tm
+1 0 0 1 56 784 Tm
 (Estructura del proyecto:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 739 Tm
+1 0 0 1 56 754 Tm
 (.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 725 Tm
+1 0 0 1 56 740 Tm
 (|-- .github/workflows/ci.yml) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 711 Tm
+1 0 0 1 56 726 Tm
 (|-- docs/TPO2.md) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 697 Tm
+1 0 0 1 56 712 Tm
 (|-- reports/pytest-report.html) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 683 Tm
+1 0 0 1 56 698 Tm
 (|-- scripts/generate_pdf.py) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 669 Tm
+1 0 0 1 56 684 Tm
 (|-- src/descuentos/) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 655 Tm
+1 0 0 1 56 670 Tm
 (|   |-- __init__.py) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 641 Tm
+1 0 0 1 56 656 Tm
 (|   |-- calculator.py) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 627 Tm
+1 0 0 1 56 642 Tm
 (|   `-- main.py) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 613 Tm
+1 0 0 1 56 628 Tm
 (|-- tests/test_calculator.py) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 599 Tm
+1 0 0 1 56 614 Tm
 (|-- pyproject.toml) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 585 Tm
+1 0 0 1 56 600 Tm
 (|-- requirements.txt) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 571 Tm
+1 0 0 1 56 586 Tm
 (`-- README.md) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 529 Tm
+1 0 0 1 56 544 Tm
 (4. Parte 1 - Diseno del escenario de prueba) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 482 Tm
+1 0 0 1 56 497 Tm
 (Escenario de prueba) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 437 Tm
+1 0 0 1 56 452 Tm
 (El escenario elegido representa una compra en la que el sistema debe calcular el precio) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 422 Tm
+1 0 0 1 56 437 Tm
 (final luego de aplicar descuentos. El contexto simula una aplicacion comercial simple) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 407 Tm
+1 0 0 1 56 422 Tm
 (donde diferentes tipos de clientes obtienen distintos beneficios.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 377 Tm
+1 0 0 1 56 392 Tm
 (Casos de prueba definidos) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 332 Tm
+1 0 0 1 56 347 Tm
 (Caso | Tipo | Datos de entrada | Resultado esperado) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 317 Tm
+1 0 0 1 56 332 Tm
 (Cliente premium | Caso exitoso | Monto: 10000, cliente: premium | Precio final: 9000) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 302 Tm
+1 0 0 1 56 317 Tm
 (Monto negativo | Caso de error | Monto: -1, cliente: regular | Se lanza ValueError) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 287 Tm
+1 0 0 1 56 302 Tm
 (Compra en limite | Caso borde | Monto: 100000, cliente: vip | Precio final: 75000) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 272 Tm
+1 0 0 1 56 287 Tm
 (Cliente inexistente | Caso de error adicional | Monto: 5000, cliente: estudiante | Se) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 257 Tm
+1 0 0 1 56 272 Tm
 (lanza ValueError) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 227 Tm
+1 0 0 1 56 242 Tm
 (El caso borde es importante porque verifica que el descuento adicional se aplique) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 212 Tm
+1 0 0 1 56 227 Tm
 (exactamente en el limite definido por la regla de negocio: compras desde $100000.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 182 Tm
+1 0 0 1 56 197 Tm
 (5. Parte 2 - Automatizacion de pruebas) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 135 Tm
+1 0 0 1 56 150 Tm
 (Los casos fueron automatizados con Python y pytest. El archivo de pruebas es) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 120 Tm
+1 0 0 1 56 135 Tm
 (tests/test_calculator.py.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 90 Tm
+1 0 0 1 56 105 Tm
 (Tests automatizados:) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 75 Tm
+(- test_cliente_premium_recibe_descuento_exitoso) Tj
 ET
 0.35 0.35 0.35 rg
 BT /F1 9 Tf
@@ -536,193 +530,193 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 12 0 R >>
 endobj
 12 0 obj
-<< /Length 2889 >>
+<< /Length 2878 >>
 stream
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 784 Tm
-(- test_cliente_premium_recibe_descuento_exitoso) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 769 Tm
 (- test_monto_negativo_genera_error) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 754 Tm
+1 0 0 1 56 769 Tm
 (- test_compra_en_limite_recibe_descuento_adicional) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 739 Tm
+1 0 0 1 56 754 Tm
 (- test_tipo_cliente_desconocido_genera_error) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 709 Tm
+1 0 0 1 56 724 Tm
 (Comando para ejecutar las pruebas:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 679 Tm
+1 0 0 1 56 694 Tm
 (pytest --html=reports/pytest-report.html --self-contained-html) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 637 Tm
+1 0 0 1 56 652 Tm
 (Resultado local obtenido:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 607 Tm
+1 0 0 1 56 622 Tm
 (4 passed) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 565 Tm
+1 0 0 1 56 580 Tm
 (Este resultado confirma que la logica del sistema cumple con los escenarios definidos.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 535 Tm
+1 0 0 1 56 550 Tm
 (6. Parte 3 - Pipeline CI/CD) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 488 Tm
+1 0 0 1 56 503 Tm
 (El pipeline fue configurado con GitHub Actions en el archivo .github/workflows/ci.yml.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 458 Tm
+1 0 0 1 56 473 Tm
 (El workflow se ejecuta automaticamente ante:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 428 Tm
+1 0 0 1 56 443 Tm
 (- push) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 413 Tm
+1 0 0 1 56 428 Tm
 (- pull_request) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 383 Tm
+1 0 0 1 56 398 Tm
 (Pasos del pipeline:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 353 Tm
+1 0 0 1 56 368 Tm
 (1. Descarga el repositorio con actions/checkout@v4.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 338 Tm
+1 0 0 1 56 353 Tm
 (2. Configura Python 3.12 con actions/setup-python@v5.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 323 Tm
+1 0 0 1 56 338 Tm
 (3. Instala dependencias desde requirements.txt.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 308 Tm
+1 0 0 1 56 323 Tm
 (4. Ejecuta los tests automatizados con pytest.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 293 Tm
+1 0 0 1 56 308 Tm
 (5. Genera el reporte HTML con pytest-html.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 278 Tm
+1 0 0 1 56 293 Tm
 (6. Publica el reporte como artefacto llamado pytest-html-report.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 248 Tm
+1 0 0 1 56 263 Tm
 (Fragmento del pipeline:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 218 Tm
+1 0 0 1 56 233 Tm
 (name: Python tests) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 190 Tm
+1 0 0 1 56 205 Tm
 (on:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 176 Tm
+1 0 0 1 56 191 Tm
 (  push:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 162 Tm
+1 0 0 1 56 177 Tm
 (  pull_request:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 134 Tm
+1 0 0 1 56 149 Tm
 (jobs:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 120 Tm
+1 0 0 1 56 135 Tm
 (  test:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 106 Tm
+1 0 0 1 56 121 Tm
 (    runs-on: ubuntu-latest) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 92 Tm
+1 0 0 1 56 107 Tm
 (    steps:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 78 Tm
+1 0 0 1 56 93 Tm
 (      - uses: actions/checkout@v4) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 9 Tf
+1 0 0 1 56 79 Tm
+(      - uses: actions/setup-python@v5) Tj
 ET
 0.35 0.35 0.35 rg
 BT /F1 9 Tf
@@ -735,205 +729,193 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 14 0 R >>
 endobj
 14 0 obj
-<< /Length 3628 >>
+<< /Length 3294 >>
 stream
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
 1 0 0 1 56 784 Tm
-(      - uses: actions/setup-python@v5) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 9 Tf
-1 0 0 1 56 770 Tm
 (        with:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 756 Tm
+1 0 0 1 56 770 Tm
 (          python-version: "3.12") Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 742 Tm
+1 0 0 1 56 756 Tm
 (      - run: pip install -r requirements.txt) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 728 Tm
+1 0 0 1 56 742 Tm
 (      - run: pytest --html=reports/pytest-report.html --self-contained-html) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 686 Tm
+1 0 0 1 56 700 Tm
 (El artefacto generado permite descargar un reporte visual de los tests ejecutados.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 656 Tm
+1 0 0 1 56 670 Tm
 (7. Parte 4 - Evidencia y analisis) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 609 Tm
+1 0 0 1 56 623 Tm
 (Evidencia de ejecucion local) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 564 Tm
+1 0 0 1 56 578 Tm
 (La ejecucion local de pytest finalizo correctamente:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 534 Tm
+1 0 0 1 56 548 Tm
 (tests/test_calculator.py::test_cliente_premium_recibe_descuento_exitoso PASSED) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 520 Tm
+1 0 0 1 56 534 Tm
 (tests/test_calculator.py::test_monto_negativo_genera_error PASSED) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 506 Tm
+1 0 0 1 56 520 Tm
 (tests/test_calculator.py::test_compra_en_limite_recibe_descuento_adicional) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 492 Tm
+1 0 0 1 56 506 Tm
 (PASSED) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 478 Tm
+1 0 0 1 56 492 Tm
 (tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 9 Tf
-1 0 0 1 56 464 Tm
+1 0 0 1 56 478 Tm
 (4 passed) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 422 Tm
+1 0 0 1 56 436 Tm
 (Evidencia del pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 377 Tm
-(El pipeline fue configurado correctamente en .github/workflows/ci.yml, pero no se pudo) Tj
+1 0 0 1 56 391 Tm
+(El pipeline fue configurado correctamente en .github/workflows/ci.yml. La evidencia) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 362 Tm
-(registrar una captura real de GitHub Actions porque el repositorio remoto publico aun no) Tj
+1 0 0 1 56 376 Tm
+(disponible en esta entrega es:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 347 Tm
-(existe. Al intentar publicar el repositorio en) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 332 Tm
-(https://github.com/LaureanoFloresU/tpo2-testing-pipeline.git, GitHub respondio) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 317 Tm
-(Repository not found.) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 287 Tm
-(Por ese motivo, la evidencia disponible en esta entrega es:) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 257 Tm
+1 0 0 1 56 346 Tm
 (- Archivo de workflow incluido en .github/workflows/ci.yml.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 242 Tm
+1 0 0 1 56 331 Tm
 (- Ejecucion local de pytest finalizada correctamente.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 227 Tm
+1 0 0 1 56 316 Tm
 (- Reporte HTML generado en reports/pytest-report.html.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 212 Tm
+1 0 0 1 56 301 Tm
 (- Proyecto empaquetado en Flores_1142069_26042026_TPO2_repositorio.zip.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 182 Tm
-(Cuando el repositorio sea creado en GitHub y se realice el primer push, el workflow) Tj
+1 0 0 1 56 286 Tm
+(- Repositorio publico: https://github.com/LaureanoFloresU/tpo2-testing-pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 167 Tm
-(Python tests debe verse en la pestaña Actions. La ejecucion correcta debe mostrar:) Tj
+1 0 0 1 56 256 Tm
+(Al realizar el push, el workflow Python tests debe verse en la pestaña Actions del) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 137 Tm
+1 0 0 1 56 241 Tm
+(repositorio. La ejecucion correcta debe mostrar:) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 211 Tm
 (- Estado general del workflow: OK.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 122 Tm
+1 0 0 1 56 196 Tm
 (- Job test: OK.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 107 Tm
+1 0 0 1 56 181 Tm
 (- Paso Install dependencies: OK.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 92 Tm
+1 0 0 1 56 166 Tm
 (- Paso Run automated tests: OK.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 77 Tm
+1 0 0 1 56 151 Tm
 (- Artefacto disponible: pytest-html-report.) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F2 12 Tf
+1 0 0 1 56 121 Tm
+(Resultado de los tests) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 76 Tm
+(Test | Resultado) Tj
 ET
 0.35 0.35 0.35 rg
 BT /F1 9 Tf
@@ -946,175 +928,181 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 16 0 R >>
 endobj
 16 0 obj
-<< /Length 3395 >>
+<< /Length 3614 >>
 stream
 0.08 0.08 0.08 rg
 BT
-/F2 12 Tf
-1 0 0 1 56 769 Tm
-(Resultado de los tests) Tj
-ET
-0.08 0.08 0.08 rg
-BT
 /F1 10 Tf
-1 0 0 1 56 724 Tm
-(Test | Resultado) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 709 Tm
+1 0 0 1 56 784 Tm
 (Cliente premium recibe descuento exitoso | OK) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 694 Tm
+1 0 0 1 56 769 Tm
 (Monto negativo genera error | OK) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 679 Tm
+1 0 0 1 56 754 Tm
 (Compra en limite recibe descuento adicional | OK) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 664 Tm
+1 0 0 1 56 739 Tm
 (Tipo de cliente desconocido genera error | OK) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 634 Tm
+1 0 0 1 56 709 Tm
 (Explicacion de resultados) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 589 Tm
+1 0 0 1 56 664 Tm
 (Los tests pasaron porque la funcion implementada respeta las reglas de negocio. El caso) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 574 Tm
+1 0 0 1 56 649 Tm
 (exitoso confirma el descuento premium, el caso de error valida que un monto negativo no) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 559 Tm
+1 0 0 1 56 634 Tm
 (sea aceptado, el caso borde comprueba el limite exacto de $100000 y el caso de cliente) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 544 Tm
+1 0 0 1 56 619 Tm
 (inexistente verifica que el sistema rechace datos invalidos.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 514 Tm
+1 0 0 1 56 589 Tm
 (Ventaja de automatizar pruebas dentro del pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 469 Tm
+1 0 0 1 56 544 Tm
 (Automatizar pruebas dentro del pipeline permite detectar errores automaticamente cada) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 454 Tm
+1 0 0 1 56 529 Tm
 (vez que se sube codigo al repositorio. Esto evita depender solamente de revisiones) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 439 Tm
+1 0 0 1 56 514 Tm
 (manuales y ayuda a impedir que cambios defectuosos lleguen a la rama principal.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 409 Tm
+1 0 0 1 56 484 Tm
 (Impacto en la calidad del software) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 364 Tm
+1 0 0 1 56 439 Tm
 (El impacto es positivo porque aumenta la confianza sobre cada cambio. Tambien mejora la) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 349 Tm
+1 0 0 1 56 424 Tm
 (trazabilidad, ya que GitHub Actions conserva logs de cada ejecucion. Esto permite saber) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 334 Tm
+1 0 0 1 56 409 Tm
 (que version del codigo fue probada, que tests se ejecutaron y cual fue el resultado.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 304 Tm
+1 0 0 1 56 379 Tm
 (8. Parte 5 - Reflexion) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 257 Tm
+1 0 0 1 56 332 Tm
 (Beneficios de automatizar pruebas frente a hacerlas manualmente) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 212 Tm
+1 0 0 1 56 287 Tm
 (Automatizar pruebas permite ahorrar tiempo, repetir validaciones sin esfuerzo adicional) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 197 Tm
+1 0 0 1 56 272 Tm
 (y reducir errores humanos. Las pruebas manuales pueden ser utiles para explorar el) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 182 Tm
+1 0 0 1 56 257 Tm
 (sistema, pero las pruebas automatizadas son mejores para comprobar reglas conocidas de) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 167 Tm
+1 0 0 1 56 242 Tm
 (manera constante.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 12 Tf
-1 0 0 1 56 137 Tm
+1 0 0 1 56 212 Tm
 (Dificultades encontradas al implementar el pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 92 Tm
+1 0 0 1 56 167 Tm
 (Una dificultad fue asegurar que todas las dependencias estuvieran declaradas) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 77 Tm
+1 0 0 1 56 152 Tm
 (correctamente en requirements.txt. Otra dificultad fue ordenar la estructura del) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 137 Tm
+(proyecto para que pytest pudiera importar el codigo desde src. Tambien fue necesario) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 122 Tm
+(generar un artefacto HTML para cumplir con la evidencia solicitada.) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F2 12 Tf
+1 0 0 1 56 92 Tm
+(Donde aplicaria este enfoque en un entorno real) Tj
 ET
 0.35 0.35 0.35 rg
 BT /F1 9 Tf
@@ -1127,187 +1115,199 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 18 0 R >>
 endobj
 18 0 obj
-<< /Length 3559 >>
+<< /Length 3721 >>
 stream
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 784 Tm
-(proyecto para que pytest pudiera importar el codigo desde src. Tambien fue necesario) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
 1 0 0 1 56 769 Tm
-(generar un artefacto HTML para cumplir con la evidencia solicitada.) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F2 12 Tf
-1 0 0 1 56 739 Tm
-(Donde aplicaria este enfoque en un entorno real) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 694 Tm
 (Aplicaria este enfoque en proyectos web, APIs, sistemas administrativos, sistemas de) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 679 Tm
+1 0 0 1 56 754 Tm
 (ventas, facturacion o cualquier aplicacion que tenga reglas de negocio importantes. En) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 664 Tm
+1 0 0 1 56 739 Tm
 (un entorno real, automatizar pruebas dentro del pipeline ayuda a trabajar en equipo y) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 649 Tm
+1 0 0 1 56 724 Tm
 (reduce el riesgo de romper funcionalidades existentes.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 619 Tm
+1 0 0 1 56 694 Tm
 (9. Conclusiones personales) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 572 Tm
+1 0 0 1 56 647 Tm
 (El trabajo muestra como se conectan el desarrollo de software, el testing y las) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 557 Tm
+1 0 0 1 56 632 Tm
 (practicas DevOps. La automatizacion no reemplaza completamente el criterio humano, pero) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 542 Tm
+1 0 0 1 56 617 Tm
 (permite construir una base de validacion objetiva y repetible.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 512 Tm
+1 0 0 1 56 587 Tm
 (Integrar pytest con GitHub Actions permite que cada cambio sea verificado) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 497 Tm
+1 0 0 1 56 572 Tm
 (automaticamente. Esto mejora la calidad del proceso de desarrollo y facilita detectar) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 482 Tm
+1 0 0 1 56 557 Tm
 (errores antes de que lleguen a produccion.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 452 Tm
+1 0 0 1 56 527 Tm
 (10. Propuestas de futuras mejoras) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 405 Tm
+1 0 0 1 56 480 Tm
 (Como mejoras futuras se podrian implementar:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 375 Tm
+1 0 0 1 56 450 Tm
 (- Agregar mas reglas de descuento.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 360 Tm
+1 0 0 1 56 435 Tm
 (- Usar tests parametrizados para cubrir mas combinaciones.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 345 Tm
+1 0 0 1 56 420 Tm
 (- Incorporar cobertura de codigo con pytest-cov.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 330 Tm
+1 0 0 1 56 405 Tm
 (- Agregar analisis de estilo con ruff.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 315 Tm
+1 0 0 1 56 390 Tm
 (- Publicar el reporte HTML como pagina estatica.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 300 Tm
+1 0 0 1 56 375 Tm
 (- Agregar ramas protegidas para exigir que el pipeline pase antes de integrar cambios.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 285 Tm
+1 0 0 1 56 360 Tm
 (- Incorporar pruebas de integracion si la aplicacion crece.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 255 Tm
+1 0 0 1 56 330 Tm
 (11. Bibliografia) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 208 Tm
+1 0 0 1 56 283 Tm
 (- Python Software Foundation. Documentacion oficial de Python:) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 193 Tm
+1 0 0 1 56 268 Tm
 (https://docs.python.org/3/) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 178 Tm
+1 0 0 1 56 253 Tm
 (- pytest. Documentacion oficial: https://docs.pytest.org/) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 163 Tm
+1 0 0 1 56 238 Tm
 (- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 148 Tm
+1 0 0 1 56 223 Tm
 (- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F2 14 Tf
-1 0 0 1 56 118 Tm
+1 0 0 1 56 193 Tm
 (12. Estado de cumplimiento) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 146 Tm
+(Requisito | Estado | Observacion) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 131 Tm
+(Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 116 Tm
+(src/descuentos/calculator.py.) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 101 Tm
+(Estructura de proyecto real | Cumplido | Separacion entre src, tests, docs, reports y) Tj
+ET
+0.08 0.08 0.08 rg
+BT
+/F1 10 Tf
+1 0 0 1 56 86 Tm
+(.github/workflows.) Tj
 ET
 0.35 0.35 0.35 rg
 BT /F1 9 Tf
@@ -1320,168 +1320,138 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 33 0 R /F2 34 0 R >> >> /Contents 20 0 R >>
 endobj
 20 0 obj
-<< /Length 3280 >>
+<< /Length 2742 >>
 stream
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
 1 0 0 1 56 784 Tm
-(Requisito | Estado | Observacion) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 769 Tm
-(Funcionalidad simple en Python | Cumplido | Sistema de descuentos implementado en) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 754 Tm
-(src/descuentos/calculator.py.) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 739 Tm
-(Estructura de proyecto real | Cumplido | Separacion entre src, tests, docs, reports y) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 724 Tm
-(.github/workflows.) Tj
-ET
-0.08 0.08 0.08 rg
-BT
-/F1 10 Tf
-1 0 0 1 56 709 Tm
 (Escenario de prueba | Cumplido | Escenario comercial de calculo de precio final con) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 694 Tm
+1 0 0 1 56 769 Tm
 (descuentos.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 679 Tm
+1 0 0 1 56 754 Tm
 (Al menos 3 casos de prueba | Cumplido | Se definieron 4 casos.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 664 Tm
+1 0 0 1 56 739 Tm
 (Python + pytest | Cumplido | Tests en tests/test_calculator.py.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 649 Tm
+1 0 0 1 56 724 Tm
 (Caso exitoso | Cumplido | Cliente premium con descuento correcto.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 634 Tm
+1 0 0 1 56 709 Tm
 (Caso de error | Cumplido | Monto negativo y cliente desconocido generan ValueError.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 619 Tm
+1 0 0 1 56 694 Tm
 (Caso borde | Cumplido | Compra exacta de $100000 aplica descuento adicional.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 604 Tm
+1 0 0 1 56 679 Tm
 (GitHub Actions configurado | Cumplido | Workflow Python tests en) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 589 Tm
+1 0 0 1 56 664 Tm
 (.github/workflows/ci.yml.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 574 Tm
+1 0 0 1 56 649 Tm
 (Ejecutarse al hacer push | Cumplido en configuracion | El workflow tiene trigger push.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 559 Tm
+1 0 0 1 56 634 Tm
 (Instalar dependencias | Cumplido | Paso Install dependencies.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 544 Tm
+1 0 0 1 56 619 Tm
 (Ejecutar tests | Cumplido | Paso Run automated tests.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 529 Tm
+1 0 0 1 56 604 Tm
 (Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 514 Tm
+1 0 0 1 56 589 Tm
 (Artefacto de reporte | Cumplido en configuracion y localmente | pytest-html-report en) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 499 Tm
+1 0 0 1 56 574 Tm
 (GitHub Actions y reports/pytest-report.html local.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 484 Tm
-(Capturas del pipeline | Pendiente | Requiere que exista el repositorio remoto y se) Tj
+1 0 0 1 56 559 Tm
+(Capturas del pipeline | Pendiente de incorporar | Se deben agregar luego de que GitHub) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 469 Tm
-(ejecute GitHub Actions.) Tj
+1 0 0 1 56 544 Tm
+(Actions finalice en el repositorio publico.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 454 Tm
-(Repositorio publico accesible | Pendiente | No existe actualmente en GitHub; el intento) Tj
+1 0 0 1 56 529 Tm
+(Repositorio publico accesible | Cumplido |) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 439 Tm
-(de push devolvio Repository not found.) Tj
+1 0 0 1 56 514 Tm
+(https://github.com/LaureanoFloresU/tpo2-testing-pipeline) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 424 Tm
+1 0 0 1 56 499 Tm
 (PDF con portada, indice y paginas | Cumplido | Archivo Flores_1142069_26042026_TPO2.pdf.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 409 Tm
+1 0 0 1 56 484 Tm
 (Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10.) Tj
 ET
 0.08 0.08 0.08 rg
 BT
 /F1 10 Tf
-1 0 0 1 56 394 Tm
+1 0 0 1 56 469 Tm
 (Bibliografia | Cumplido | Incluida en la seccion 11.) Tj
 ET
 0.35 0.35 0.35 rg
@@ -1544,34 +1514,34 @@ xref
 0000001352 00000 n 
 0000002564 00000 n 
 0000002702 00000 n 
-0000006531 00000 n 
-0000006670 00000 n 
-0000009956 00000 n 
-0000010096 00000 n 
-0000013038 00000 n 
-0000013178 00000 n 
-0000016859 00000 n 
-0000016999 00000 n 
-0000020447 00000 n 
-0000020587 00000 n 
-0000024199 00000 n 
-0000024339 00000 n 
-0000027672 00000 n 
-0000027795 00000 n 
-0000027918 00000 n 
-0000028041 00000 n 
-0000028164 00000 n 
-0000028287 00000 n 
-0000028411 00000 n 
-0000028535 00000 n 
-0000028659 00000 n 
-0000028783 00000 n 
-0000028907 00000 n 
-0000029031 00000 n 
-0000029155 00000 n 
-0000029253 00000 n 
+0000006291 00000 n 
+0000006430 00000 n 
+0000009821 00000 n 
+0000009961 00000 n 
+0000012892 00000 n 
+0000013032 00000 n 
+0000016379 00000 n 
+0000016519 00000 n 
+0000020186 00000 n 
+0000020326 00000 n 
+0000024100 00000 n 
+0000024240 00000 n 
+0000027035 00000 n 
+0000027158 00000 n 
+0000027281 00000 n 
+0000027404 00000 n 
+0000027527 00000 n 
+0000027650 00000 n 
+0000027774 00000 n 
+0000027898 00000 n 
+0000028022 00000 n 
+0000028146 00000 n 
+0000028270 00000 n 
+0000028394 00000 n 
+0000028518 00000 n 
+0000028616 00000 n 
 trailer
 << /Size 35 /Root 1 0 R >>
 startxref
-29356
+28719
 %%EOF
