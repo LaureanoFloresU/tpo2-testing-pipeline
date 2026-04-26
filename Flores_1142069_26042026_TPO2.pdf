@@ -3,13 +3,13 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R] /Count 5 >>
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R] /Count 6 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R /F2 14 0 R >> >> /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 2870 >>
+<< /Length 3134 >>
 stream
 BT
 /F2 18 Tf
@@ -31,7 +31,7 @@ BT
 54 692 Td (Fecha: 26/04/2026) Tj
 -54 -14 Td
 /F1 10 Tf
-54 678 Td (Repositorio: COMPLETAR_CON_URL_PUBLICA_DE_GITHUB) Tj
+54 678 Td (Repositorio público previsto: https://github.com/LaureanoFloresU/tpo2-testing-pipeline) Tj
 -54 -14 Td
 /F2 13 Tf
 54 645 Td (Indice) Tj
@@ -40,530 +40,634 @@ BT
 54 617 Td (1. Introduccion) Tj
 -54 -14 Td
 /F1 10 Tf
-54 603 Td (2. Parte 1 - Diseno del escenario de prueba) Tj
+54 603 Td (2. Objetivo del trabajo) Tj
 -54 -14 Td
 /F1 10 Tf
-54 589 Td (3. Parte 2 - Automatizacion de pruebas) Tj
+54 589 Td (3. Desarrollo de la aplicacion) Tj
 -54 -14 Td
 /F1 10 Tf
-54 575 Td (4. Parte 3 - Pipeline CI/CD) Tj
+54 575 Td (4. Parte 1 - Diseno del escenario de prueba) Tj
 -54 -14 Td
 /F1 10 Tf
-54 561 Td (5. Parte 4 - Evidencia y analisis) Tj
+54 561 Td (5. Parte 2 - Automatizacion de pruebas) Tj
 -54 -14 Td
 /F1 10 Tf
-54 547 Td (6. Parte 5 - Reflexion) Tj
+54 547 Td (6. Parte 3 - Pipeline CI/CD) Tj
 -54 -14 Td
 /F1 10 Tf
-54 533 Td (7. Conclusiones personales) Tj
+54 533 Td (7. Parte 4 - Evidencia y analisis) Tj
 -54 -14 Td
 /F1 10 Tf
-54 519 Td (8. Futuras mejoras) Tj
+54 519 Td (8. Parte 5 - Reflexion) Tj
 -54 -14 Td
 /F1 10 Tf
-54 505 Td (9. Bibliografia) Tj
+54 505 Td (9. Conclusiones personales) Tj
+-54 -14 Td
+/F1 10 Tf
+54 491 Td (10. Propuestas de futuras mejoras) Tj
+-54 -14 Td
+/F1 10 Tf
+54 477 Td (11. Bibliografia) Tj
 -54 -14 Td
 /F2 13 Tf
-54 472 Td (1. Introduccion) Tj
+54 444 Td (1. Introduccion) Tj
 -54 -14 Td
 /F1 10 Tf
-54 444 Td (El objetivo del trabajo fue implementar un flujo basico de automatizacion de pruebas) Tj
+54 416 Td (Este trabajo practico tiene como objetivo aplicar conceptos de testing automatizado y) Tj
 -54 -14 Td
 /F1 10 Tf
-54 430 Td (integrado a un pipeline de integracion continua. Para resolverlo se desarrollo una) Tj
+54 402 Td (DevOps mediante una solucion simple desarrollada en Python. La propuesta consiste en) Tj
 -54 -14 Td
 /F1 10 Tf
-54 416 Td (aplicacion simple en Python que calcula descuentos segun el tipo de cliente y el monto) Tj
+54 388 Td (crear una funcionalidad sencilla, definir escenarios de prueba, automatizarlos con) Tj
 -54 -14 Td
 /F1 10 Tf
-54 402 Td (de la compra.) Tj
+54 374 Td (pytest e integrarlos a un pipeline de integracion continua usando GitHub Actions.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 374 Td (La solucion utiliza pytest para automatizar los casos de prueba y GitHub Actions para) Tj
+54 346 Td (La funcionalidad elegida fue un sistema de descuentos. La aplicacion calcula el precio) Tj
 -54 -14 Td
 /F1 10 Tf
-54 360 Td (ejecutar las pruebas automaticamente ante cada push o pull_request. Ademas, el pipeline) Tj
+54 332 Td (final de una compra de acuerdo con el tipo de cliente y el monto ingresado. Esta) Tj
 -54 -14 Td
 /F1 10 Tf
-54 346 Td (genera un reporte HTML con pytest-html y lo publica como artefacto.) Tj
+54 318 Td (eleccion permite cubrir casos exitosos, errores de validacion y casos borde de forma) Tj
+-54 -14 Td
+/F1 10 Tf
+54 304 Td (clara.) Tj
 -54 -14 Td
 /F2 13 Tf
-54 313 Td (2. Parte 1 - Diseno del escenario de prueba) Tj
+54 271 Td (2. Objetivo del trabajo) Tj
+-54 -14 Td
+/F1 10 Tf
+54 243 Td (El objetivo es implementar un flujo basico de automatizacion de pruebas integrado a un) Tj
+-54 -14 Td
+/F1 10 Tf
+54 229 Td (pipeline CI/CD. Para cumplirlo se desarrollo una aplicacion en Python, se escribieron) Tj
+-54 -14 Td
+/F1 10 Tf
+54 215 Td (pruebas automatizadas con pytest y se configuro un workflow de GitHub Actions que) Tj
+-54 -14 Td
+/F1 10 Tf
+54 201 Td (instala dependencias, ejecuta los tests y genera un reporte HTML como artefacto.) Tj
 -54 -14 Td
 /F2 13 Tf
-54 280 Td (Funcionalidad desarrollada) Tj
+54 168 Td (3. Desarrollo de la aplicacion) Tj
 -54 -14 Td
 /F1 10 Tf
-54 252 Td (Se desarrollo un sistema de descuentos con la funcion calcular_precio_final\(monto,) Tj
+54 140 Td (La aplicacion se encuentra dentro de la carpeta src/descuentos. La funcion principal es) Tj
 -54 -14 Td
 /F1 10 Tf
-54 238 Td (tipo_cliente\).) Tj
+54 126 Td (calcular_precio_final\(monto, tipo_cliente\).) Tj
 -54 -14 Td
 /F1 10 Tf
-54 210 Td (Reglas de negocio:) Tj
--54 -14 Td
-/F1 10 Tf
-54 182 Td (- Cliente regular: no recibe descuento.) Tj
--54 -14 Td
-/F1 10 Tf
-54 168 Td (- Cliente premium: recibe 10% de descuento.) Tj
--54 -14 Td
-/F1 10 Tf
-54 154 Td (- Cliente vip: recibe 20% de descuento.) Tj
--54 -14 Td
-/F1 10 Tf
-54 140 Td (- Compras desde $100000 reciben 5% adicional.) Tj
--54 -14 Td
-/F1 10 Tf
-54 126 Td (- Un monto negativo debe generar error.) Tj
--54 -14 Td
-/F1 10 Tf
-54 112 Td (- Un tipo de cliente desconocido debe generar error.) Tj
--54 -14 Td
-/F2 13 Tf
-54 79 Td (Estructura del proyecto) Tj
+54 98 Td (Reglas implementadas:) Tj
 -54 -14 Td
 /F1 9 Tf
-54 38 Td (Pagina 1 de 5) Tj
+54 38 Td (Pagina 1 de 6) Tj
 ET
 endstream
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R /F2 14 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2659 >>
+<< /Length 3065 >>
 stream
 BT
 /F1 10 Tf
-54 756 Td (    .) Tj
+54 784 Td (- Cliente regular: no recibe descuento.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 742 Td (    |-- .github/workflows/ci.yml) Tj
+54 770 Td (- Cliente premium: recibe 10% de descuento.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 728 Td (    |-- docs/TPO2.md) Tj
+54 756 Td (- Cliente vip: recibe 20% de descuento.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 714 Td (    |-- reports/pytest-report.html) Tj
+54 742 Td (- Compras desde $100000 reciben 5% adicional.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 700 Td (    |-- src/descuentos/) Tj
+54 728 Td (- No se aceptan montos negativos.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 686 Td (    |   |-- __init__.py) Tj
+54 714 Td (- No se aceptan tipos de cliente desconocidos.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 672 Td (    |   |-- calculator.py) Tj
+54 686 Td (Estructura del proyecto:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 658 Td (    |   -- main.py) Tj
+54 644 Td (    .) Tj
 -54 -14 Td
 /F1 10 Tf
-54 644 Td (    |-- tests/test_calculator.py) Tj
+54 630 Td (    |-- .github/workflows/ci.yml) Tj
 -54 -14 Td
 /F1 10 Tf
-54 630 Td (    |-- pyproject.toml) Tj
+54 616 Td (    |-- docs/TPO2.md) Tj
 -54 -14 Td
 /F1 10 Tf
-54 616 Td (    |-- requirements.txt) Tj
+54 602 Td (    |-- reports/pytest-report.html) Tj
 -54 -14 Td
 /F1 10 Tf
-54 602 Td (    -- README.md) Tj
+54 588 Td (    |-- scripts/generate_pdf.py) Tj
+-54 -14 Td
+/F1 10 Tf
+54 574 Td (    |-- src/descuentos/) Tj
+-54 -14 Td
+/F1 10 Tf
+54 560 Td (    |   |-- __init__.py) Tj
+-54 -14 Td
+/F1 10 Tf
+54 546 Td (    |   |-- calculator.py) Tj
+-54 -14 Td
+/F1 10 Tf
+54 532 Td (    |   -- main.py) Tj
+-54 -14 Td
+/F1 10 Tf
+54 518 Td (    |-- tests/test_calculator.py) Tj
+-54 -14 Td
+/F1 10 Tf
+54 504 Td (    |-- pyproject.toml) Tj
+-54 -14 Td
+/F1 10 Tf
+54 490 Td (    |-- requirements.txt) Tj
+-54 -14 Td
+/F1 10 Tf
+54 476 Td (    -- README.md) Tj
 -54 -14 Td
 /F2 13 Tf
-54 555 Td (Casos de prueba definidos) Tj
--54 -14 Td
-/F1 10 Tf
-54 527 Td (Caso | Contexto | Datos de entrada | Resultado esperado) Tj
--54 -14 Td
-/F1 10 Tf
-54 513 Td (--- | --- | --- | ---) Tj
--54 -14 Td
-/F1 10 Tf
-54 499 Td (Caso exitoso | Cliente premium realiza una compra valida | Monto: 10000, cliente:) Tj
--54 -14 Td
-/F1 10 Tf
-54 485 Td (premium | Precio final: 9000) Tj
--54 -14 Td
-/F1 10 Tf
-54 471 Td (Caso de error | Se ingresa un monto negativo | Monto: -1, cliente: regular | Se lanza) Tj
--54 -14 Td
-/F1 10 Tf
-54 457 Td (ValueError) Tj
--54 -14 Td
-/F1 10 Tf
-54 443 Td (Caso borde | Compra exactamente en el limite del descuento adicional | Monto: 100000,) Tj
--54 -14 Td
-/F1 10 Tf
-54 429 Td (cliente: vip | Precio final: 75000) Tj
--54 -14 Td
-/F1 10 Tf
-54 415 Td (Caso de error adicional | Se ingresa un tipo de cliente inexistente | Monto: 5000,) Tj
--54 -14 Td
-/F1 10 Tf
-54 401 Td (cliente: estudiante | Se lanza ValueError) Tj
+54 429 Td (4. Parte 1 - Diseno del escenario de prueba) Tj
 -54 -14 Td
 /F2 13 Tf
-54 368 Td (3. Parte 2 - Automatizacion de pruebas) Tj
+54 396 Td (Escenario de prueba) Tj
 -54 -14 Td
 /F1 10 Tf
-54 340 Td (Los tests fueron automatizados con Python y pytest. El archivo principal de pruebas es) Tj
+54 368 Td (El escenario elegido representa una compra en la que el sistema debe calcular el precio) Tj
 -54 -14 Td
 /F1 10 Tf
-54 326 Td (tests/test_calculator.py.) Tj
+54 354 Td (final luego de aplicar descuentos. El contexto simula una aplicacion comercial simple) Tj
 -54 -14 Td
 /F1 10 Tf
-54 298 Td (Tests implementados:) Tj
+54 340 Td (donde diferentes tipos de clientes obtienen distintos beneficios.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 307 Td (Casos de prueba definidos) Tj
 -54 -14 Td
 /F1 10 Tf
-54 270 Td (- test_cliente_premium_recibe_descuento_exitoso) Tj
+54 279 Td (Caso | Tipo | Datos de entrada | Resultado esperado) Tj
 -54 -14 Td
 /F1 10 Tf
-54 256 Td (- test_monto_negativo_genera_error) Tj
+54 265 Td (--- | --- | --- | ---) Tj
 -54 -14 Td
 /F1 10 Tf
-54 242 Td (- test_compra_en_limite_recibe_descuento_adicional) Tj
+54 251 Td (Cliente premium | Caso exitoso | Monto: 10000, cliente: premium | Precio final: 9000) Tj
 -54 -14 Td
 /F1 10 Tf
-54 228 Td (- test_tipo_cliente_desconocido_genera_error) Tj
+54 237 Td (Monto negativo | Caso de error | Monto: -1, cliente: regular | Se lanza ValueError) Tj
 -54 -14 Td
 /F1 10 Tf
-54 200 Td (Comando utilizado para ejecutar las pruebas localmente:) Tj
+54 223 Td (Compra en limite | Caso borde | Monto: 100000, cliente: vip | Precio final: 75000) Tj
 -54 -14 Td
 /F1 10 Tf
-54 158 Td (    pytest --html=reports/pytest-report.html --self-contained-html) Tj
+54 209 Td (Cliente inexistente | Caso de error adicional | Monto: 5000, cliente: estudiante | Se) Tj
 -54 -14 Td
 /F1 10 Tf
-54 116 Td (Resultado local obtenido:) Tj
+54 195 Td (lanza ValueError) Tj
 -54 -14 Td
 /F1 10 Tf
-54 74 Td (    4 passed) Tj
+54 167 Td (El caso borde es importante porque verifica que el descuento adicional se aplique) Tj
+-54 -14 Td
+/F1 10 Tf
+54 153 Td (exactamente en el limite definido por la regla de negocio: compras desde $100000.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 120 Td (5. Parte 2 - Automatizacion de pruebas) Tj
+-54 -14 Td
+/F1 10 Tf
+54 92 Td (Los casos fueron automatizados con Python y pytest. El archivo de pruebas es) Tj
+-54 -14 Td
+/F1 10 Tf
+54 78 Td (tests/test_calculator.py.) Tj
 -54 -14 Td
 /F1 9 Tf
-54 38 Td (Pagina 2 de 5) Tj
+54 38 Td (Pagina 2 de 6) Tj
 ET
 endstream
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R /F2 14 0 R >> >> /Contents 8 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 2440 >>
-stream
-BT
-/F2 13 Tf
-54 751 Td (4. Parte 3 - Pipeline CI/CD) Tj
--54 -14 Td
-/F1 10 Tf
-54 723 Td (Se configuro GitHub Actions mediante el archivo .github/workflows/ci.yml.) Tj
--54 -14 Td
-/F1 10 Tf
-54 695 Td (El pipeline realiza los siguientes pasos:) Tj
--54 -14 Td
-/F1 10 Tf
-54 667 Td (1. Descarga el repositorio con actions/checkout.) Tj
--54 -14 Td
-/F1 10 Tf
-54 653 Td (2. Configura Python 3.12 con actions/setup-python.) Tj
--54 -14 Td
-/F1 10 Tf
-54 639 Td (3. Instala las dependencias desde requirements.txt.) Tj
--54 -14 Td
-/F1 10 Tf
-54 625 Td (4. Ejecuta los tests con pytest.) Tj
--54 -14 Td
-/F1 10 Tf
-54 611 Td (5. Genera el reporte HTML.) Tj
--54 -14 Td
-/F1 10 Tf
-54 597 Td (6. Publica el reporte como artefacto llamado pytest-html-report.) Tj
--54 -14 Td
-/F1 10 Tf
-54 569 Td (El pipeline se ejecuta automaticamente en:) Tj
--54 -14 Td
-/F1 10 Tf
-54 541 Td (- push) Tj
--54 -14 Td
-/F1 10 Tf
-54 527 Td (- pull_request) Tj
--54 -14 Td
-/F1 10 Tf
-54 499 Td (Fragmento principal del workflow:) Tj
--54 -14 Td
-/F1 10 Tf
-54 457 Td (    - name: Run automated tests) Tj
--54 -14 Td
-/F1 10 Tf
-54 443 Td (      run: |) Tj
--54 -14 Td
-/F1 10 Tf
-54 429 Td (        mkdir -p reports) Tj
--54 -14 Td
-/F1 10 Tf
-54 415 Td (        pytest --html=reports/pytest-report.html --self-contained-html) Tj
--54 -14 Td
-/F1 10 Tf
-54 387 Td (    - name: Upload test report artifact) Tj
--54 -14 Td
-/F1 10 Tf
-54 373 Td (      uses: actions/upload-artifact@v4) Tj
--54 -14 Td
-/F1 10 Tf
-54 359 Td (      with:) Tj
--54 -14 Td
-/F1 10 Tf
-54 345 Td (        name: pytest-html-report) Tj
--54 -14 Td
-/F1 10 Tf
-54 331 Td (        path: reports/pytest-report.html) Tj
--54 -14 Td
-/F2 13 Tf
-54 284 Td (5. Parte 4 - Evidencia y analisis) Tj
--54 -14 Td
-/F2 13 Tf
-54 251 Td (Evidencia del pipeline) Tj
--54 -14 Td
-/F1 10 Tf
-54 223 Td (Al subir el proyecto a GitHub y realizar un push, debe observarse el workflow Python) Tj
--54 -14 Td
-/F1 10 Tf
-54 209 Td (tests dentro de la pestaña Actions del repositorio.) Tj
--54 -14 Td
-/F1 10 Tf
-54 181 Td (Capturas a incorporar luego de subir el repositorio:) Tj
--54 -14 Td
-/F1 10 Tf
-54 153 Td (- Captura 1: workflow ejecutandose en GitHub Actions.) Tj
--54 -14 Td
-/F1 10 Tf
-54 139 Td (- Captura 2: workflow finalizado correctamente con estado verde.) Tj
--54 -14 Td
-/F1 10 Tf
-54 125 Td (- Captura 3: artefacto pytest-html-report disponible para descarga.) Tj
--54 -14 Td
-/F2 13 Tf
-54 92 Td (Resultado de los tests) Tj
--54 -14 Td
-/F1 9 Tf
-54 38 Td (Pagina 3 de 5) Tj
-ET
-endstream
-endobj
-9 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R /F2 14 0 R >> >> /Contents 10 0 R >>
-endobj
-10 0 obj
-<< /Length 3182 >>
-stream
-BT
-/F1 10 Tf
-54 784 Td (Test | Resultado) Tj
--54 -14 Td
-/F1 10 Tf
-54 770 Td (--- | ---) Tj
--54 -14 Td
-/F1 10 Tf
-54 756 Td (Cliente premium recibe descuento exitoso | OK) Tj
--54 -14 Td
-/F1 10 Tf
-54 742 Td (Monto negativo genera error | OK) Tj
--54 -14 Td
-/F1 10 Tf
-54 728 Td (Compra en limite recibe descuento adicional | OK) Tj
--54 -14 Td
-/F1 10 Tf
-54 714 Td (Tipo de cliente desconocido genera error | OK) Tj
--54 -14 Td
-/F1 10 Tf
-54 686 Td (Resultado general:) Tj
--54 -14 Td
-/F1 10 Tf
-54 644 Td (    4 passed) Tj
--54 -14 Td
-/F2 13 Tf
-54 597 Td (Explicacion de resultados) Tj
--54 -14 Td
-/F1 10 Tf
-54 569 Td (Los tests finalizaron correctamente porque la funcion respeta las reglas de negocio) Tj
--54 -14 Td
-/F1 10 Tf
-54 555 Td (definidas. El caso exitoso confirma el descuento para cliente premium. El caso de error) Tj
--54 -14 Td
-/F1 10 Tf
-54 541 Td (valida que un monto negativo no sea aceptado. El caso borde comprueba que una compra) Tj
--54 -14 Td
-/F1 10 Tf
-54 527 Td (exactamente igual a $100000 recibe el descuento adicional. El caso de cliente) Tj
--54 -14 Td
-/F1 10 Tf
-54 513 Td (desconocido verifica que la aplicacion rechace datos no contemplados.) Tj
--54 -14 Td
-/F2 13 Tf
-54 480 Td (Ventajas de automatizar pruebas dentro del pipeline) Tj
--54 -14 Td
-/F1 10 Tf
-54 452 Td (Automatizar pruebas dentro del pipeline permite detectar errores de forma temprana cada) Tj
--54 -14 Td
-/F1 10 Tf
-54 438 Td (vez que se sube codigo al repositorio. Esto evita depender solamente de pruebas manuales) Tj
--54 -14 Td
-/F1 10 Tf
-54 424 Td (y reduce la posibilidad de integrar cambios defectuosos.) Tj
--54 -14 Td
-/F2 13 Tf
-54 391 Td (Impacto en la calidad del software) Tj
--54 -14 Td
-/F1 10 Tf
-54 363 Td (El impacto es positivo porque aumenta la confianza sobre el codigo, permite validar) Tj
--54 -14 Td
-/F1 10 Tf
-54 349 Td (cambios de manera repetible y ayuda a mantener estable la aplicacion. Tambien mejora la) Tj
--54 -14 Td
-/F1 10 Tf
-54 335 Td (trazabilidad, ya que cada ejecucion queda registrada en los logs de GitHub Actions.) Tj
--54 -14 Td
-/F2 13 Tf
-54 302 Td (6. Parte 5 - Reflexion) Tj
--54 -14 Td
-/F2 13 Tf
-54 269 Td (Beneficios de automatizar pruebas frente a hacerlas manualmente) Tj
--54 -14 Td
-/F1 10 Tf
-54 241 Td (Automatizar pruebas ahorra tiempo, evita errores humanos y permite repetir las) Tj
--54 -14 Td
-/F1 10 Tf
-54 227 Td (validaciones todas las veces que sea necesario. En proyectos con cambios frecuentes,) Tj
--54 -14 Td
-/F1 10 Tf
-54 213 Td (esto es especialmente importante porque ayuda a encontrar regresiones rapidamente.) Tj
--54 -14 Td
-/F2 13 Tf
-54 180 Td (Dificultades encontradas al implementar el pipeline) Tj
--54 -14 Td
-/F1 10 Tf
-54 152 Td (La principal dificultad fue asegurar que el entorno de ejecucion tuviera todas las) Tj
--54 -14 Td
-/F1 10 Tf
-54 138 Td (dependencias necesarias y que el comando de pruebas generara correctamente el reporte) Tj
--54 -14 Td
-/F1 10 Tf
-54 124 Td (HTML. Tambien es importante respetar la estructura de carpetas para que los tests puedan) Tj
--54 -14 Td
-/F1 10 Tf
-54 110 Td (importar la aplicacion sin problemas.) Tj
--54 -14 Td
-/F2 13 Tf
-54 77 Td (Aplicacion en un entorno real) Tj
--54 -14 Td
-/F1 9 Tf
-54 38 Td (Pagina 4 de 5) Tj
-ET
-endstream
-endobj
-11 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R /F2 14 0 R >> >> /Contents 12 0 R >>
-endobj
-12 0 obj
 << /Length 2132 >>
 stream
 BT
 /F1 10 Tf
-54 770 Td (Aplicaria este enfoque en cualquier proyecto donde varias personas realicen cambios) Tj
+54 770 Td (Tests automatizados:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 756 Td (sobre el mismo codigo. Por ejemplo, en sistemas web, APIs, aplicaciones internas de) Tj
+54 742 Td (- test_cliente_premium_recibe_descuento_exitoso) Tj
 -54 -14 Td
 /F1 10 Tf
-54 742 Td (empresas o sistemas de facturacion, donde un error puede afectar procesos importantes.) Tj
+54 728 Td (- test_monto_negativo_genera_error) Tj
+-54 -14 Td
+/F1 10 Tf
+54 714 Td (- test_compra_en_limite_recibe_descuento_adicional) Tj
+-54 -14 Td
+/F1 10 Tf
+54 700 Td (- test_tipo_cliente_desconocido_genera_error) Tj
+-54 -14 Td
+/F1 10 Tf
+54 672 Td (Comando para ejecutar las pruebas:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 630 Td (    pytest --html=reports/pytest-report.html --self-contained-html) Tj
+-54 -14 Td
+/F1 10 Tf
+54 588 Td (Resultado local obtenido:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 546 Td (    4 passed) Tj
+-54 -14 Td
+/F1 10 Tf
+54 504 Td (Este resultado confirma que la logica del sistema cumple con los escenarios definidos.) Tj
 -54 -14 Td
 /F2 13 Tf
-54 709 Td (7. Conclusiones personales) Tj
+54 471 Td (6. Parte 3 - Pipeline CI/CD) Tj
 -54 -14 Td
 /F1 10 Tf
-54 681 Td (Este trabajo permite comprender como se conectan el desarrollo, el testing y DevOps. La) Tj
+54 443 Td (El pipeline fue configurado con GitHub Actions en el archivo .github/workflows/ci.yml.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 667 Td (automatizacion de pruebas no reemplaza completamente el criterio humano, pero aporta una) Tj
+54 415 Td (El workflow se ejecuta automaticamente ante:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 653 Td (base objetiva para validar el funcionamiento del software ante cada cambio.) Tj
+54 387 Td (- push) Tj
 -54 -14 Td
 /F1 10 Tf
-54 625 Td (Tambien permite entender que un pipeline no solo ejecuta comandos, sino que funciona) Tj
+54 373 Td (- pull_request) Tj
 -54 -14 Td
 /F1 10 Tf
-54 611 Td (como un control de calidad continuo dentro del ciclo de desarrollo.) Tj
--54 -14 Td
-/F2 13 Tf
-54 578 Td (8. Futuras mejoras) Tj
+54 345 Td (Pasos del pipeline:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 550 Td (Como mejoras futuras se podrian agregar:) Tj
+54 317 Td (1. Descarga el repositorio con actions/checkout@v4.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 522 Td (- Mas reglas de descuento.) Tj
+54 303 Td (2. Configura Python 3.12 con actions/setup-python@v5.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 508 Td (- Tests parametrizados para cubrir mas combinaciones.) Tj
+54 289 Td (3. Instala dependencias desde requirements.txt.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 494 Td (- Analisis de cobertura con pytest-cov.) Tj
+54 275 Td (4. Ejecuta los tests automatizados con pytest.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 480 Td (- Validaciones de estilo con ruff.) Tj
+54 261 Td (5. Genera el reporte HTML con pytest-html.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 466 Td (- Publicacion del reporte como pagina estatica.) Tj
+54 247 Td (6. Publica el reporte como artefacto llamado pytest-html-report.) Tj
 -54 -14 Td
 /F1 10 Tf
-54 452 Td (- Separacion de ambientes para desarrollo, testing y produccion.) Tj
--54 -14 Td
-/F2 13 Tf
-54 419 Td (9. Bibliografia) Tj
+54 219 Td (Fragmento del pipeline:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 391 Td (- Documentacion oficial de Python: https://docs.python.org/3/) Tj
+54 177 Td (    name: Python tests) Tj
 -54 -14 Td
 /F1 10 Tf
-54 377 Td (- Documentacion oficial de pytest: https://docs.pytest.org/) Tj
+54 149 Td (    on:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 363 Td (- Documentacion oficial de GitHub Actions: https://docs.github.com/actions) Tj
+54 135 Td (      push:) Tj
 -54 -14 Td
 /F1 10 Tf
-54 349 Td (- Documentacion de pytest-html: https://pytest-html.readthedocs.io/) Tj
+54 121 Td (      pull_request:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 93 Td (    jobs:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 79 Td (      test:) Tj
 -54 -14 Td
 /F1 9 Tf
-54 38 Td (Pagina 5 de 5) Tj
+54 38 Td (Pagina 3 de 6) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 2815 >>
+stream
+BT
+/F1 10 Tf
+54 784 Td (        runs-on: ubuntu-latest) Tj
+-54 -14 Td
+/F1 10 Tf
+54 770 Td (        steps:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 756 Td (          - uses: actions/checkout@v4) Tj
+-54 -14 Td
+/F1 10 Tf
+54 742 Td (          - uses: actions/setup-python@v5) Tj
+-54 -14 Td
+/F1 10 Tf
+54 728 Td (            with:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 714 Td (              python-version: "3.12") Tj
+-54 -14 Td
+/F1 10 Tf
+54 700 Td (          - run: pip install -r requirements.txt) Tj
+-54 -14 Td
+/F1 10 Tf
+54 686 Td (          - run: pytest --html=reports/pytest-report.html --self-contained-html) Tj
+-54 -14 Td
+/F1 10 Tf
+54 644 Td (El artefacto generado permite descargar un reporte visual de los tests ejecutados.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 611 Td (7. Parte 4 - Evidencia y analisis) Tj
+-54 -14 Td
+/F2 13 Tf
+54 578 Td (Evidencia de ejecucion local) Tj
+-54 -14 Td
+/F1 10 Tf
+54 550 Td (La ejecucion local de pytest finalizo correctamente:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 508 Td (    tests/test_calculator.py::test_cliente_premium_recibe_descuento_exitoso PASSED) Tj
+-54 -14 Td
+/F1 10 Tf
+54 494 Td (    tests/test_calculator.py::test_monto_negativo_genera_error PASSED) Tj
+-54 -14 Td
+/F1 10 Tf
+54 480 Td (    tests/test_calculator.py::test_compra_en_limite_recibe_descuento_adicional) Tj
+-54 -14 Td
+/F1 10 Tf
+54 466 Td (    PASSED) Tj
+-54 -14 Td
+/F1 10 Tf
+54 452 Td (    tests/test_calculator.py::test_tipo_cliente_desconocido_genera_error PASSED) Tj
+-54 -14 Td
+/F1 10 Tf
+54 438 Td (    4 passed) Tj
+-54 -14 Td
+/F2 13 Tf
+54 391 Td (Evidencia esperada del pipeline) Tj
+-54 -14 Td
+/F1 10 Tf
+54 363 Td (Una vez publicado el repositorio en GitHub, el workflow Python tests debe verse en la) Tj
+-54 -14 Td
+/F1 10 Tf
+54 349 Td (pestaña Actions. La ejecucion correcta debe mostrar:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 321 Td (- Estado general del workflow: OK.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 307 Td (- Job test: OK.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 293 Td (- Paso Install dependencies: OK.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 279 Td (- Paso Run automated tests: OK.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 265 Td (- Artefacto disponible: pytest-html-report.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 232 Td (Resultado de los tests) Tj
+-54 -14 Td
+/F1 10 Tf
+54 204 Td (Test | Resultado) Tj
+-54 -14 Td
+/F1 10 Tf
+54 190 Td (--- | ---) Tj
+-54 -14 Td
+/F1 10 Tf
+54 176 Td (Cliente premium recibe descuento exitoso | OK) Tj
+-54 -14 Td
+/F1 10 Tf
+54 162 Td (Monto negativo genera error | OK) Tj
+-54 -14 Td
+/F1 10 Tf
+54 148 Td (Compra en limite recibe descuento adicional | OK) Tj
+-54 -14 Td
+/F1 10 Tf
+54 134 Td (Tipo de cliente desconocido genera error | OK) Tj
+-54 -14 Td
+/F2 13 Tf
+54 101 Td (Explicacion de resultados) Tj
+-54 -14 Td
+/F1 10 Tf
+54 73 Td (Los tests pasaron porque la funcion implementada respeta las reglas de negocio. El caso) Tj
+-54 -14 Td
+/F1 9 Tf
+54 38 Td (Pagina 4 de 6) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 3645 >>
+stream
+BT
+/F1 10 Tf
+54 784 Td (exitoso confirma el descuento premium, el caso de error valida que un monto negativo no) Tj
+-54 -14 Td
+/F1 10 Tf
+54 770 Td (sea aceptado, el caso borde comprueba el limite exacto de $100000 y el caso de cliente) Tj
+-54 -14 Td
+/F1 10 Tf
+54 756 Td (inexistente verifica que el sistema rechace datos invalidos.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 723 Td (Ventaja de automatizar pruebas dentro del pipeline) Tj
+-54 -14 Td
+/F1 10 Tf
+54 695 Td (Automatizar pruebas dentro del pipeline permite detectar errores automaticamente cada) Tj
+-54 -14 Td
+/F1 10 Tf
+54 681 Td (vez que se sube codigo al repositorio. Esto evita depender solamente de revisiones) Tj
+-54 -14 Td
+/F1 10 Tf
+54 667 Td (manuales y ayuda a impedir que cambios defectuosos lleguen a la rama principal.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 634 Td (Impacto en la calidad del software) Tj
+-54 -14 Td
+/F1 10 Tf
+54 606 Td (El impacto es positivo porque aumenta la confianza sobre cada cambio. Tambien mejora la) Tj
+-54 -14 Td
+/F1 10 Tf
+54 592 Td (trazabilidad, ya que GitHub Actions conserva logs de cada ejecucion. Esto permite saber) Tj
+-54 -14 Td
+/F1 10 Tf
+54 578 Td (que version del codigo fue probada, que tests se ejecutaron y cual fue el resultado.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 545 Td (8. Parte 5 - Reflexion) Tj
+-54 -14 Td
+/F2 13 Tf
+54 512 Td (Beneficios de automatizar pruebas frente a hacerlas manualmente) Tj
+-54 -14 Td
+/F1 10 Tf
+54 484 Td (Automatizar pruebas permite ahorrar tiempo, repetir validaciones sin esfuerzo adicional) Tj
+-54 -14 Td
+/F1 10 Tf
+54 470 Td (y reducir errores humanos. Las pruebas manuales pueden ser utiles para explorar el) Tj
+-54 -14 Td
+/F1 10 Tf
+54 456 Td (sistema, pero las pruebas automatizadas son mejores para comprobar reglas conocidas de) Tj
+-54 -14 Td
+/F1 10 Tf
+54 442 Td (manera constante.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 409 Td (Dificultades encontradas al implementar el pipeline) Tj
+-54 -14 Td
+/F1 10 Tf
+54 381 Td (Una dificultad fue asegurar que todas las dependencias estuvieran declaradas) Tj
+-54 -14 Td
+/F1 10 Tf
+54 367 Td (correctamente en requirements.txt. Otra dificultad fue ordenar la estructura del) Tj
+-54 -14 Td
+/F1 10 Tf
+54 353 Td (proyecto para que pytest pudiera importar el codigo desde src. Tambien fue necesario) Tj
+-54 -14 Td
+/F1 10 Tf
+54 339 Td (generar un artefacto HTML para cumplir con la evidencia solicitada.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 306 Td (Donde aplicaria este enfoque en un entorno real) Tj
+-54 -14 Td
+/F1 10 Tf
+54 278 Td (Aplicaria este enfoque en proyectos web, APIs, sistemas administrativos, sistemas de) Tj
+-54 -14 Td
+/F1 10 Tf
+54 264 Td (ventas, facturacion o cualquier aplicacion que tenga reglas de negocio importantes. En) Tj
+-54 -14 Td
+/F1 10 Tf
+54 250 Td (un entorno real, automatizar pruebas dentro del pipeline ayuda a trabajar en equipo y) Tj
+-54 -14 Td
+/F1 10 Tf
+54 236 Td (reduce el riesgo de romper funcionalidades existentes.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 203 Td (9. Conclusiones personales) Tj
+-54 -14 Td
+/F1 10 Tf
+54 175 Td (El trabajo muestra como se conectan el desarrollo de software, el testing y las) Tj
+-54 -14 Td
+/F1 10 Tf
+54 161 Td (practicas DevOps. La automatizacion no reemplaza completamente el criterio humano, pero) Tj
+-54 -14 Td
+/F1 10 Tf
+54 147 Td (permite construir una base de validacion objetiva y repetible.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 119 Td (Integrar pytest con GitHub Actions permite que cada cambio sea verificado) Tj
+-54 -14 Td
+/F1 10 Tf
+54 105 Td (automaticamente. Esto mejora la calidad del proceso de desarrollo y facilita detectar) Tj
+-54 -14 Td
+/F1 10 Tf
+54 91 Td (errores antes de que lleguen a produccion.) Tj
+-54 -14 Td
+/F1 9 Tf
+54 38 Td (Pagina 5 de 6) Tj
 ET
 endstream
 endobj
 13 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 15 0 R /F2 16 0 R >> >> /Contents 14 0 R >>
 endobj
 14 0 obj
+<< /Length 1361 >>
+stream
+BT
+/F2 13 Tf
+54 779 Td (10. Propuestas de futuras mejoras) Tj
+-54 -14 Td
+/F1 10 Tf
+54 751 Td (Como mejoras futuras se podrian implementar:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 723 Td (- Agregar mas reglas de descuento.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 709 Td (- Usar tests parametrizados para cubrir mas combinaciones.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 695 Td (- Incorporar cobertura de codigo con pytest-cov.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 681 Td (- Agregar analisis de estilo con ruff.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 667 Td (- Publicar el reporte HTML como pagina estatica.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 653 Td (- Agregar ramas protegidas para exigir que el pipeline pase antes de integrar cambios.) Tj
+-54 -14 Td
+/F1 10 Tf
+54 639 Td (- Incorporar pruebas de integracion si la aplicacion crece.) Tj
+-54 -14 Td
+/F2 13 Tf
+54 606 Td (11. Bibliografia) Tj
+-54 -14 Td
+/F1 10 Tf
+54 578 Td (- Python Software Foundation. Documentacion oficial de Python:) Tj
+-54 -14 Td
+/F1 10 Tf
+54 564 Td (https://docs.python.org/3/) Tj
+-54 -14 Td
+/F1 10 Tf
+54 550 Td (- pytest. Documentacion oficial: https://docs.pytest.org/) Tj
+-54 -14 Td
+/F1 10 Tf
+54 536 Td (- GitHub. Documentacion oficial de GitHub Actions: https://docs.github.com/actions) Tj
+-54 -14 Td
+/F1 10 Tf
+54 522 Td (- pytest-html. Documentacion oficial: https://pytest-html.readthedocs.io/) Tj
+-54 -14 Td
+/F1 9 Tf
+54 38 Td (Pagina 6 de 6) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+16 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 xref
-0 15
+0 17
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000140 00000 n 
-0000000278 00000 n 
-0000003200 00000 n 
-0000003338 00000 n 
-0000006049 00000 n 
-0000006187 00000 n 
-0000008679 00000 n 
-0000008818 00000 n 
-0000012053 00000 n 
-0000012193 00000 n 
-0000014378 00000 n 
-0000014449 00000 n 
+0000000147 00000 n 
+0000000285 00000 n 
+0000003471 00000 n 
+0000003609 00000 n 
+0000006726 00000 n 
+0000006864 00000 n 
+0000009048 00000 n 
+0000009187 00000 n 
+0000012055 00000 n 
+0000012195 00000 n 
+0000015893 00000 n 
+0000016033 00000 n 
+0000017447 00000 n 
+0000017518 00000 n 
 trailer
-<< /Size 15 /Root 1 0 R >>
+<< /Size 17 /Root 1 0 R >>
 startxref
-14525
+17594
 %%EOF
