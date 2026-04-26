@@ -182,14 +182,18 @@ El pipeline fue configurado correctamente en `.github/workflows/ci.yml`. La evid
 - Reporte HTML generado en `reports/pytest-report.html`.
 - Proyecto empaquetado en `Flores_1142069_26042026_TPO2_repositorio.zip`.
 - Repositorio publico: https://github.com/LaureanoFloresU/tpo2-testing-pipeline
+- Pipeline ejecutado correctamente en GitHub Actions: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352
+- Job `test` finalizado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352/job/73104107486
+- Artefacto generado: `pytest-html-report`.
 
 Al realizar el `push`, el workflow `Python tests` debe verse en la pestaña Actions del repositorio. La ejecucion correcta debe mostrar:
 
-- Estado general del workflow: OK.
-- Job `test`: OK.
+- Estado general del workflow: completed / success.
+- Job `test`: completed / success.
 - Paso `Install dependencies`: OK.
 - Paso `Run automated tests`: OK.
 - Artefacto disponible: `pytest-html-report`.
+- Commit ejecutado: `30631744595d020879f918eb0c3e6c5490680906`.
 
 ### Resultado de los tests
 
@@ -269,7 +273,7 @@ Como mejoras futuras se podrian implementar:
 | Ejecutar tests | Cumplido | Paso `Run automated tests`. |
 | Mostrar logs | Cumplido en configuracion | GitHub Actions mostrara logs por cada paso. |
 | Artefacto de reporte | Cumplido en configuracion y localmente | `pytest-html-report` en GitHub Actions y `reports/pytest-report.html` local. |
-| Capturas del pipeline | Pendiente de incorporar | Se deben agregar luego de que GitHub Actions finalice en el repositorio publico. |
+| Capturas / evidencia del pipeline | Cumplido | Pipeline ejecutado correctamente: https://github.com/LaureanoFloresU/tpo2-testing-pipeline/actions/runs/24967262352 |
 | Repositorio publico accesible | Cumplido | https://github.com/LaureanoFloresU/tpo2-testing-pipeline |
 | PDF con portada, indice y paginas | Cumplido | Archivo `Flores_1142069_26042026_TPO2.pdf`. |
 | Conclusiones y futuras mejoras | Cumplido | Incluidas en las secciones 9 y 10. |
